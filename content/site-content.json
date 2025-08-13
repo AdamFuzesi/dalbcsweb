@@ -1,0 +1,133 @@
+{
+  "site": {
+    "title": "Blockchain Society",
+    "logoSrc": "/logo.png",
+    "header": {
+      "nav": [
+        { "id": "home", "label": "Home" },
+        { "id": "team", "label": "Team" },
+        { "id": "timeline", "label": "Timeline" },
+        { "id": "join", "label": "Join Us" },
+        { "id": "contact", "label": "Contact" }
+      ]
+    }
+  },
+  "metadata": {
+    "title": "Dal BCS",
+    "description": "made by Adam F."
+  },
+  "hero": {
+    "heading": "Dal Blockchain",
+    "poweredByHighlight": "SUI",
+    "tagline": "Building block of the University Blockchain Economy.",
+    "cta": { "label": "Explore Now" }
+  },
+  "join": {
+    "heading": "WE NEED YOU",
+    "membersCount": "40+ members",
+    "bullets": [
+      "Connect with likeminded individuals",
+      "All programs are welcome",
+      "Inclusive, diverse, safe space"
+    ],
+    "cta": { "label": "Join Our Discord" },
+    "paragraphs": [
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur."
+    ]
+  },
+  "timeline": {
+    "heading": "Our Journey",
+    "events": [
+      {
+        "title": "Event 1",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
+        "image": "/placeholder.svg?height=400&width=400"
+      },
+      {
+        "title": "Event 2",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
+        "image": "/placeholder.svg?height=400&width=400"
+      },
+      {
+        "title": "Event 3",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
+        "image": "/placeholder.svg?height=400&width=400"
+      },
+      {
+        "title": "Event 4",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
+        "image": "/placeholder.svg?height=400&width=400"
+      },
+      {
+        "title": "Event 5",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
+        "image": "/placeholder.svg?height=400&width=400"
+      }
+    ]
+  },
+  "team": {
+    "heading": "Meet The Team",
+    "subheading": "Select a member to learn more about their role.",
+    "members": [
+      {
+        "id": 1,
+        "name": "Ashar",
+        "role": "President",
+        "image": "/ASHAR.png?height=800&width=600",
+        "bio": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
+        "social": { "linkedin": "#", "twitter": "#" }
+      },
+      {
+        "id": 2,
+        "name": "Tolga",
+        "role": "Vice President",
+        "image": "/TURKYPOO.png?height=800&width=600",
+        "bio": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
+        "social": { "linkedin": "#", "twitter": "#" }
+      },
+      {
+        "id": 3,
+        "name": "Adam",
+        "role": "Head of Technology",
+        "image": "/ADAM.png?height=800&width=600",
+        "bio": "Him.",
+        "social": { "linkedin": "#", "twitter": "#" }
+      },
+      {
+        "id": 4,
+        "name": "Julian",
+        "role": "Head of Marketing",
+        "image": "/JULIAN.png?height=800&width=600",
+        "bio": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
+        "social": { "linkedin": "#", "twitter": "#" }
+      },
+      {
+        "id": 5,
+        "name": "Lennart",
+        "role": "Head of Events",
+        "image": "/LENNART.png?height=800&width=600",
+        "bio": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
+        "social": { "linkedin": "#", "twitter": "#" }
+      },
+      {
+        "id": 6,
+        "name": "LUCA",
+        "role": "Head of Research",
+        "image": "/LUCA.png?height=800&width=600",
+        "bio": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
+        "social": { "linkedin": "#", "twitter": "#" }
+      }
+    ]
+  },
+  "contact": {
+    "heading": "Get In Touch",
+    "subheading": "Have questions or want to collaborate? We'd love to hear from you.",
+    "form": {
+      "namePlaceholder": "Your Name",
+      "emailPlaceholder": "Your Email",
+      "messagePlaceholder": "Your Message",
+      "submitLabel": "Send Message"
+    }
+  }
+} 

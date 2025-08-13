@@ -1,0 +1,120 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 4%; /* #0A0A0A */
+    --foreground: 0 0% 98%;
+
+    --card: 0 0% 4%;
+    --card-foreground: 0 0% 98%;
+
+    --popover: 0 0% 4%;
+    --popover-foreground: 0 0% 98%;
+
+    --primary: 45 100% 50%; /* #FFC700 */
+    --primary-foreground: 0 0% 10%;
+
+    --secondary: 0 0% 96.1%;
+    --secondary-foreground: 0 0% 9%;
+
+    --muted: 0 0% 96.1%;
+    --muted-foreground: 0 0% 45.1%;
+
+    --accent: 0 0% 80%; /* #CCCCCC */
+    --accent-foreground: 0 0% 9%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 0 0% 10%;
+    --input: 0 0% 10%;
+    --ring: 45 100% 50%;
+
+    --radius: 0.75rem;
+  }
+
+  .dark {
+    --background: 0 0% 4%;
+    --foreground: 0 0% 98%;
+    --card: 0 0% 4%;
+    --card-foreground: 0 0% 98%;
+    --popover: 0 0% 4%;
+    --popover-foreground: 0 0% 98%;
+    --primary: 45 100% 50%;
+    --primary-foreground: 0 0% 10%;
+    --secondary: 0 0% 96.1%;
+    --secondary-foreground: 0 0% 9%;
+    --muted: 0 0% 96.1%;
+    --muted-foreground: 0 0% 45.1%;
+    --accent: 0 0% 80%;
+    --accent-foreground: 0 0% 9%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 0 0% 10%;
+    --input: 0 0% 10%;
+    --ring: 45 100% 50%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply text-foreground;
+    font-feature-settings: "rlig" 1, "calt" 1;
+    background-color: #0a0a0a;
+    background-image: radial-gradient(ellipse 80% 50% at 50% -20%, rgba(255, 199, 0, 0.3), transparent);
+    animation: gradient-fade 10s ease-in-out infinite;
+    position: relative;
+  }
+
+  body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100vw;
+    height: 100vh;
+    background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 800"><filter id="noise"><feTurbulence type="fractalNoise" baseFrequency="0.8" numOctaves="4" stitchTiles="stitch"/></filter><rect width="100%" height="100%" filter="url(%23noise)"/></svg>');
+    opacity: 0.035;
+    pointer-events: none;
+    z-index: -1;
+  }
+
+  /* Subtle yellow mesh gradient layer */
+  body::after {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100vw;
+    height: 100vh;
+    background-image:
+      radial-gradient(1000px 700px at 20% 10%, rgba(255, 199, 0, 0.12), transparent 60%),
+      radial-gradient(900px 600px at 80% 20%, rgba(255, 199, 0, 0.08), transparent 60%),
+      radial-gradient(1100px 800px at 50% 85%, rgba(255, 199, 0, 0.06), transparent 60%);
+    background-repeat: no-repeat;
+    mix-blend-mode: screen;
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  @keyframes gradient-fade {
+    0% {
+      background-image: radial-gradient(ellipse 80% 50% at 50% -20%, rgba(255, 199, 0, 0.3), transparent);
+    }
+    50% {
+      background-image: radial-gradient(ellipse 80% 50% at 50% -20%, rgba(255, 199, 0, 0.5), transparent);
+    }
+    100% {
+      background-image: radial-gradient(ellipse 80% 50% at 50% -20%, rgba(255, 199, 0, 0.3), transparent);
+    }
+  }
+}
