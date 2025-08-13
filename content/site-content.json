@@ -89,7 +89,7 @@
       {
         "id": 3,
         "name": "Adam",
-        "role": "Head of Technology",
+        "role": "Goat",
         "image": "/ADAM.png?height=800&width=600",
         "bio": "Him.",
         "social": { "linkedin": "#", "twitter": "#" }
@@ -97,7 +97,7 @@
       {
         "id": 4,
         "name": "Julian",
-        "role": "Head of Marketing",
+        "role": "lorem",
         "image": "/JULIAN.png?height=800&width=600",
         "bio": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
         "social": { "linkedin": "#", "twitter": "#" }
@@ -105,7 +105,7 @@
       {
         "id": 5,
         "name": "Lennart",
-        "role": "Head of Events",
+        "role": "lorem",
         "image": "/LENNART.png?height=800&width=600",
         "bio": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
         "social": { "linkedin": "#", "twitter": "#" }
@@ -113,7 +113,7 @@
       {
         "id": 6,
         "name": "LUCA",
-        "role": "Head of Research",
+        "role": "lorem",
         "image": "/LUCA.png?height=800&width=600",
         "bio": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
         "social": { "linkedin": "#", "twitter": "#" }
