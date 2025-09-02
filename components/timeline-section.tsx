@@ -1,120 +1,277 @@
 "use client"
 
-import { type FC, useRef, useState } from "react"
-import { motion, useScroll, useTransform, AnimatePresence } from "framer-motion"
-import Image from "next/image"
-import content from "@/content/site-content.json"
+import { type FC, useRef, useEffect, useState } from "react"
+import { motion, useScroll, useTransform } from "framer-motion"
 
-interface Event {
+interface TimelineEvent {
+  year: string
   title: string
   description: string
-  image?: string
+  impact: string
+  tags: string[]
+  position: 'above' | 'below'
+  x: number
 }
 
-const events: Event[] = content.timeline.events as Event[]
-type ActiveEvent = { event: Event; position: "left" | "right" }
+const events: TimelineEvent[] = [
+  {
+    year: "2022",
+    title: "DAL Blockchain\nFounded",
+    description: "Started our journey to revolutionize blockchain education and innovation at the university level, bringing together passionate students.",
+    impact: "Building the future of blockchain education",
+    tags: ["Education", "Innovation"],
+    position: "above",
+    x: 1000
+  },
+  {
+    year: "2023",
+    title: "First\nHackathon",
+    description: "Organized our inaugural blockchain hackathon with over 200 participants from across the region, fostering innovation and collaboration.",
+    impact: "200+ participants, countless innovations",
+    tags: ["Hackathon", "Community"],
+    position: "below",
+    x: 2200
+  },
+  {
+    year: "2023",
+    title: "Industry\nPartnership",
+    description: "Established partnerships with leading blockchain companies to provide real-world experience and career opportunities for students.",
+    impact: "Bridging academia and industry",
+    tags: ["Partnership", "Career"],
+    position: "above",
+    x: 3400
+  },
+  {
+    year: "2024",
+    title: "Research\nPublication",
+    description: "Published groundbreaking research on decentralized systems and their applications in academic and industry contexts.",
+    impact: "Contributing to blockchain knowledge",
+    tags: ["Research", "Publication"],
+    position: "below",
+    x: 4600
+  },
+  {
+    year: "2024",
+    title: "Global\nConference",
+    description: "Hosted an international blockchain conference bringing together thought leaders, researchers, and innovators from around the world.",
+    impact: "Global blockchain community gathering",
+    tags: ["Conference", "Global"],
+    position: "above",
+    x: 5800
+  },
+  {
+    year: "2024",
+    title: "SUI\nIntegration",
+    description: "Integrated SUI blockchain technology into our curriculum and projects, providing students with cutting-edge experience.",
+    impact: "Next-generation blockchain education",
+    tags: ["SUI", "Technology"],
+    position: "below",
+    x: 7000
+  }
+]
 
 export const TimelineSection: FC = () => {
-  const targetRef = useRef<HTMLDivElement>(null)
+  const canvasRef = useRef<HTMLCanvasElement>(null)
+  const containerRef = useRef<HTMLDivElement>(null)
+  const sectionRef = useRef<HTMLDivElement>(null)
+  const [currentEventIndex, setCurrentEventIndex] = useState(-1)
+  
+  // Calculate maxScroll based on the last event position
+  const lastEventX = Math.max(...events.map(event => event.x))
+  const viewportWidth = typeof window !== 'undefined' ? window.innerWidth : 1200
+
+  // Use framer-motion scroll tracking for the entire timeline section
   const { scrollYProgress } = useScroll({
-    target: targetRef,
-    offset: ["start start", "end end"],
+    target: sectionRef,
+    offset: ["start start", "end start"]
   })
 
-  const x = useTransform(scrollYProgress, [0.05, 0.95], ["0%", "-83%"])
-  const [activeEvent, setActiveEvent] = useState<ActiveEvent | null>(null)
-  const closeTimer = useRef<NodeJS.Timeout | null>(null)
+  // Transform scroll progress to timeline position
+  const timelineProgress = useTransform(scrollYProgress, [0, 1], [0, lastEventX + 400])
 
-  const handleMouseEnter = (event: Event, element: HTMLElement) => {
-    if (closeTimer.current) {
-      clearTimeout(closeTimer.current)
+  // Draw wave on canvas
+  const drawWave = () => {
+    const canvas = canvasRef.current
+    if (!canvas) return
+    
+    const ctx = canvas.getContext('2d')
+    if (!ctx) return
+    
+    ctx.clearRect(0, 0, canvas.width, canvas.height)
+    ctx.strokeStyle = '#FFC700' // Using your brand yellow
+    ctx.lineWidth = 2
+    ctx.lineCap = 'round'
+    ctx.lineJoin = 'round'
+    
+    ctx.beginPath()
+    
+    const amplitude = 80
+    const frequency = 0.0008
+    const centerY = 300
+    
+    for (let x = 0; x <= canvas.width; x += 2) {
+      const y = centerY + Math.sin(x * frequency) * amplitude
+      if (x === 0) {
+        ctx.moveTo(x, y)
+      } else {
+        ctx.lineTo(x, y)
+      }
     }
-    const rect = element.getBoundingClientRect()
-    const position = rect.left < window.innerWidth / 2 ? "left" : "right"
-    setActiveEvent({ event, position })
+    
+    ctx.stroke()
   }
 
-  const handleMouseLeave = () => {
-    closeTimer.current = setTimeout(() => {
-      setActiveEvent(null)
-    }, 200)
+  // Get wave Y position at X coordinate
+  const getWaveY = (x: number) => {
+    const amplitude = 80
+    const frequency = 0.0008
+    const centerY = 300
+    return centerY + Math.sin(x * frequency) * amplitude
   }
 
-  const panelVariants = {
-    left: {
-      initial: { x: "-100%", opacity: 0 },
-      animate: { x: 0, opacity: 1 },
-      exit: { x: "-100%", opacity: 0 },
-    },
-    right: {
-      initial: { x: "100%", opacity: 0 },
-      animate: { x: 0, opacity: 1 },
-      exit: { x: "100%", opacity: 0 },
-    },
-  }
+  useEffect(() => {
+    drawWave()
+  }, [])
+
+  // Update events based on scroll progress
+  useEffect(() => {
+    const unsubscribe = timelineProgress.on("change", (latest) => {
+      // Check for event triggers based on timeline position
+      events.forEach((event, index) => {
+        if (index <= currentEventIndex) return
+        
+        if (latest >= event.x - 200) {
+          setCurrentEventIndex(index)
+        }
+      })
+    })
+
+    return unsubscribe
+  }, [currentEventIndex, timelineProgress])
 
   return (
-    <section ref={targetRef} className="relative h-[400vh]">
-      <div className="sticky top-0 flex h-screen items-center overflow-hidden">
-        <div className="absolute inset-0 flex items-center justify-center z-0">
-                      <h2 className="text-8xl md:text-[200px] font-extrabold tracking-tighter text-brand-primary/5 select-none whitespace-nowrap">
-              {content.timeline.heading}
-            </h2>
-        </div>
-
-        <motion.div style={{ x }} className="flex items-center gap-72 pl-24 pr-24">
-          <div className="absolute top-1/2 left-0 w-full h-px bg-brand-light -translate-y-1/2" />
-          {events.map((event, index) => (
-            <div
-              key={index}
-              className="relative flex-shrink-0 group"
-              onMouseEnter={(e) => handleMouseEnter(event, e.currentTarget)}
-              onMouseLeave={handleMouseLeave}
-            >
-              <div
-                className="absolute top-1/2 -translate-y-1/2 -left-4 w-4 h-4 rounded-full bg-brand-primary/50 transition-all duration-300 group-hover:bg-brand-primary"
-                style={{
-                  boxShadow: "0 0 0 4px rgba(255, 199, 0, 0.2), 0 0 20px 5px rgba(255, 199, 0, 0.3)",
-                }}
-              />
-              <h3 className="text-2xl font-medium text-brand-accent group-hover:text-white transition-colors duration-300 cursor-default w-64">
-                {event.title}
-              </h3>
-            </div>
-          ))}
+    <section ref={sectionRef} className="relative h-[600vh] bg-black">
+      {/* Timeline Title - Only visible in this section */}
+      <div className="sticky top-0 h-0 z-50 pointer-events-none">
+        <motion.div 
+          className="absolute top-8 left-10"
+          style={{ 
+            opacity: useTransform(scrollYProgress, [0, 0.05, 1], [1, 0, 0])
+          }}
+        >
+          <h2 className="text-white text-6xl md:text-7xl font-bold tracking-tight">Timeline</h2>
         </motion.div>
+      </div>
 
-        <AnimatePresence>
-          {activeEvent && (
-            <motion.div
-              className={`fixed top-16 h-[calc(100vh-4rem)] w-[450px] bg-brand-light/80 backdrop-blur-xl border-brand-light z-30 ${
-                activeEvent.position === "left" ? "left-0 border-r" : "right-0 border-l"
-              }`}
-              variants={panelVariants[activeEvent.position]}
-              initial="initial"
-              animate="animate"
-              exit="exit"
-              transition={{ type: "spring", stiffness: 200, damping: 30 }}
-              onMouseEnter={() => handleMouseEnter(activeEvent.event, document.body)}
-              onMouseLeave={handleMouseLeave}
-            >
-              <div className="flex flex-col h-full">
-                <div className="relative w-full h-1/3">
-                  <Image
-                    src={activeEvent.event.image || "/placeholder.svg"}
-                    alt={activeEvent.event.title}
-                    layout="fill"
-                    objectFit="cover"
-                  />
+      {/* Background Pattern */}
+      <div className="fixed top-0 right-0 w-96 h-full opacity-[0.03] z-10 font-mono text-xs leading-tight p-5 text-yellow-400 pointer-events-none">
+        ###|||<br/>
+        #########|||@@<br/>
+        ##############|||@@@@@<br/>
+        #################|||@@@@@@@@<br/>
+        ####################|||@@@@@@@@@@@<br/>
+        #######################|||@@@@@@@@@@@@<br/>
+        ########################|||@@@@@@@@@@@@@@@<br/>
+        ~#######################|||@@@@@@@@@@@@@@@@@@<br/>
+        ~##################|||@@@@@@@@@@@@@@@@@@@@@<br/>
+        ~#############|||@@@@@@@@@@@@@@@@@@@@@@@@<br/>
+        ~##########|||@@@@@@@@@@@@@@@@@@@@@@@@@<br/>
+        ~#######|||@@@@@@@@@@@@@@@@@@@@@@@@@@<br/>
+        ~####|||@@@@@@@@@@@@@@@@@@@@@@@@@@@<br/>
+        ~#|||@@@@@@@@@@@@@@@@@@@@@@@@@@@@<br/>
+        -|||@@@@@@@@@@@@@@@@@@@@@@@@@@@<br/>
+        -@@@@@@@@@@@@@@@@@@@@@@@@@@@<br/>
+        ~@@@@@@@@@@@@@@@@@@@@@@@@@<br/>
+        -@@@@@@@@@@@@@@@@@@@@@@<br/>
+        --@@@@@@@@@@@@@@@@@@@<br/>
+        --@@@@@@@@@@@@@@@@<br/>
+        --@@@@@@@@@@@@@<br/>
+        --@@@@@@@@@@<br/>
+        -@@@@@@@<br/>
+        -@@@@<br/>
+        -@@<br/>
+      </div>
+
+      <div className="sticky top-0 h-screen overflow-hidden flex items-center justify-center">
+        {/* Timeline Container */}
+        <motion.div 
+          ref={containerRef}
+          className="relative w-[8000px] h-full origin-left"
+          style={{ 
+            x: useTransform(timelineProgress, (latest) => {
+              const dotX = latest
+              return -(Math.max(0, Math.min(dotX - viewportWidth / 2, lastEventX - viewportWidth + 800)))
+            })
+          }}
+        >
+        <div className="absolute top-[60%] left-0 w-[8000px] h-[600px] -translate-y-1/2">
+          {/* Canvas Wave */}
+          <canvas 
+            ref={canvasRef}
+            width={8000}
+            height={600}
+            className="absolute top-0 left-0"
+          />
+          
+          {/* Traveling Dot */}
+          <motion.div 
+            className="absolute w-3 h-3 bg-yellow-400 rounded-full z-50"
+            style={{ 
+              x: useTransform(timelineProgress, (latest) => latest - 6),
+              y: useTransform(timelineProgress, (latest) => getWaveY(latest) - 6)
+            }}
+          />
+          
+          {/* Event Points and Displays */}
+          {events.map((event, index) => (
+            <div key={index}>
+              {/* Event Point */}
+              <div 
+                className={`absolute w-1.5 h-1.5 bg-yellow-400 rounded-full z-40 transition-opacity duration-300 ${
+                  index <= currentEventIndex ? 'opacity-100' : 'opacity-0'
+                }`}
+                style={{ left: `${event.x}px`, top: `${getWaveY(event.x) - 3}px` }}
+              />
+              
+              {/* Event Display - Dynamic positioning based on wave */}
+              <div 
+                className={`absolute w-[500px] transition-all duration-1000 ease-out z-30 ${
+                  getWaveY(event.x) < 300 ? 'top-96' : 'bottom-96'
+                } ${
+                  index <= currentEventIndex ? 'opacity-100 translate-y-0 scale-100' : 'opacity-0 translate-y-12 scale-95'
+                }`}
+                style={{ 
+                  left: `${event.x - 250}px`,
+                  transitionDelay: index <= currentEventIndex ? `${(index - currentEventIndex + events.length) * 100}ms` : '0ms'
+                }}
+              >
+                <div className="text-yellow-400 text-base font-semibold mb-3 tracking-wider uppercase">
+                  {event.year}
                 </div>
-                <div className="p-8 flex-1">
-                  <h4 className="text-3xl font-bold text-brand-primary mb-4">{activeEvent.event.title}</h4>
-                  <p className="text-brand-accent text-lg leading-relaxed">{activeEvent.event.description}</p>
+                <div className="text-white text-5xl font-bold mb-5 tracking-tight leading-tight whitespace-pre-line">
+                  {event.title}
+                </div>
+                <div className="text-gray-400 text-lg leading-relaxed mb-6 max-w-[450px]">
+                  {event.description}
+                </div>
+                <div className="text-gray-500 text-base italic mb-5">
+                  {event.impact}
+                </div>
+                <div className="flex gap-3 flex-wrap">
+                  {event.tags.map((tag, tagIndex) => (
+                    <span 
+                      key={tagIndex}
+                      className="bg-transparent text-yellow-400 border border-yellow-400 px-4 py-1.5 text-xs font-medium tracking-wider uppercase"
+                    >
+                      {tag}
+                    </span>
+                  ))}
                 </div>
               </div>
-            </motion.div>
-          )}
-        </AnimatePresence>
+            </div>
+          ))}
+        </div>
+        </motion.div>
       </div>
     </section>
   )

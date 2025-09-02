@@ -112,7 +112,7 @@ export const ExecTeamSection: FC = () => {
           transition={{ duration: 0.8 }}
           className="text-center mb-16"
         >
-          <h2 className="text-5xl md:text-7xl font-extrabold tracking-tighter text-brand-primary">{content.team.heading}</h2>
+          <h2 className="text-5xl md:text-7xl font-extrabold tracking-tighter text-yellow-500">{content.team.heading}</h2>
           <p className="max-w-2xl mx-auto mt-4 text-lg text-brand-accent">
             {content.team.subheading}
           </p>

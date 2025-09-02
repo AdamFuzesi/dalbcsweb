@@ -21,6 +21,9 @@ export const HeroSection: FC = () => {
             <h1 className="text-6xl md:text-8xl lg:text-9xl font-extrabold tracking-tighter text-white">
               {content.hero.heading}
             </h1>
+            <h1 className="text-6xl md:text-8xl lg:text-9xl font-extrabold tracking-tighter text-yellow-500">
+              {content.hero.headingSubtext}
+            </h1>
             <p className="mt-4 text-lg md:text-xl text-brand-accent max-w-md mx-auto md:mx-0">
               Powered by <span className="text-white font-semibold">{content.hero.poweredByHighlight}</span>
               <br />

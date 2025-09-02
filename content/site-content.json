@@ -7,8 +7,10 @@
         { "id": "home", "label": "Home" },
         { "id": "team", "label": "Team" },
         { "id": "timeline", "label": "Timeline" },
+        { "id": "sponsors", "label": "Sponsors" },
         { "id": "join", "label": "Join Us" },
-        { "id": "contact", "label": "Contact" }
+        { "id": "contact", "label": "Contact" },
+        { "id": "blog", "label": "Blog" }
       ]
     }
   },
@@ -17,7 +19,8 @@
     "description": "made by Adam F."
   },
   "hero": {
-    "heading": "Dal Blockchain",
+    "heading": "DAL",
+    "headingSubtext": "Blockchain",
     "poweredByHighlight": "SUI",
     "tagline": "Building block of the University Blockchain Economy.",
     "cta": { "label": "Explore Now" }

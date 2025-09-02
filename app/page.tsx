@@ -5,6 +5,7 @@ import { Header } from "@/components/header"
 import { HeroSection } from "@/components/hero-section"
 import { ExecTeamSection } from "@/components/exec-team-section"
 import { TimelineSection } from "@/components/timeline-section"
+import SponsorsSection from "@/components/sponsors-section"
 import { JoinUsSection } from "@/components/join-us-section"
 import { ContactSection } from "@/components/contact-section"
 import { motion, useScroll, useSpring } from "framer-motion"
@@ -14,6 +15,7 @@ export default function LandingPage() {
   const heroRef = useRef<HTMLDivElement>(null)
   const teamRef = useRef<HTMLDivElement>(null)
   const timelineRef = useRef<HTMLDivElement>(null)
+  const sponsorsRef = useRef<HTMLDivElement>(null)
   const joinRef = useRef<HTMLDivElement>(null)
   const contactRef = useRef<HTMLDivElement>(null)
 
@@ -41,7 +43,7 @@ export default function LandingPage() {
 
     const observer = new IntersectionObserver(observerCallback, observerOptions)
 
-    const sections = [heroRef, teamRef, timelineRef, joinRef, contactRef]
+    const sections = [heroRef, teamRef, timelineRef, sponsorsRef, joinRef, contactRef]
     sections.forEach((sectionRef) => {
       if (sectionRef.current) {
         observer.observe(sectionRef.current)
@@ -77,6 +79,9 @@ export default function LandingPage() {
         </div>
         <div id="timeline" ref={timelineRef}>
           <TimelineSection />
+        </div>
+        <div id="sponsors" ref={sponsorsRef}>
+          <SponsorsSection />
         </div>
         <div id="join" ref={joinRef}>
           <JoinUsSection />
