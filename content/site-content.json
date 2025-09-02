@@ -22,33 +22,34 @@
     "heading": "DAL",
     "headingSubtext": "Blockchain",
     "poweredByHighlight": "SUI",
-    "tagline": "Building block of the University Blockchain Economy.",
+    "tagline": "Dalhousie University's Official Blockchain Society.",
     "cta": { "label": "Explore Now" }
   },
   "join": {
-    "heading": "WE NEED YOU",
-    "membersCount": "40+ members",
+    "heading": "WANT TO LEARN MORE?",
+    "membersCount": "100+ members",
     "bullets": [
-      "Connect with likeminded individuals",
+      "Learn about blockchain and crypto along side your peers",
       "All programs are welcome",
-      "Inclusive, diverse, safe space"
+      "Open to anyone, regardless of prior knowledge"
     ],
     "cta": { "label": "Join Our Discord" },
     "paragraphs": [
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur."
+      "The Dalhousie Blockchain Society exists to break down the barriers and stigmas slowing crypto adoption. We educate on the core values of decentralization, transparency, and inclusion, while showcasing innovative opportunities that inspire members to drive growth in the space.",
+      "DalBCS is deeply engaged in the global crypto community by hosting events, attending international conferences, and advocating for adoption. Our members gain practical skills to navigate crypto markets, travel and employment opportunities through hackathons and networking, and fun perks like free food, drinks, and cash-prize competitions.",
+      "All of this is possible thanks to our generous sponsors. If you’d like to support or learn more about our mission, we’re always open to connecting."
     ]
   },
   "timeline": {
     "heading": "Our Journey",
     "events": [
       {
-        "title": "Event 1",
-        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
+        "title": "Ratification - April 2024",
+        "description": "The Dalhousie Blockchain Society is officially recognized as a student club at Dalhousie University. The start of it all.",
         "image": "/placeholder.svg?height=400&width=400"
       },
       {
-        "title": "Event 2",
+        "title": "Sonic and Sodas - ",
         "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
         "image": "/placeholder.svg?height=400&width=400"
       },
