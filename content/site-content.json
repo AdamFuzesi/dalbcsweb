@@ -78,39 +78,39 @@
         "id": 1,
         "name": "Ashar",
         "role": "President",
-        "image": "/ASHAR.png?height=800&width=600",
+        "image": "/Headshots/ASHAR.png?height=800&width=600",
         "bio": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
         "social": { "linkedin": "#", "twitter": "#" }
       },
       {
         "id": 2,
         "name": "Tolga",
-        "role": "Vice President",
-        "image": "/TURKYPOO.png?height=800&width=600",
+        "role": "Co-President",
+        "image": "/Headshots/turk.jpg?height=800&width=600",
         "bio": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
         "social": { "linkedin": "#", "twitter": "#" }
       },
       {
         "id": 3,
         "name": "Adam",
-        "role": "Goat",
-        "image": "/ADAM.png?height=800&width=600",
+        "role": "Dev Lead",
+        "image": "/Headshots/ADAM.png?height=800&width=600",
         "bio": "Him.",
         "social": { "linkedin": "#", "twitter": "#" }
       },
       {
         "id": 4,
-        "name": "Julian",
-        "role": "lorem",
-        "image": "/JULIAN.png?height=800&width=600",
+        "name": "Meghan",
+        "role": "Exec Admin",
+        "image": "/Headshots/meg.jpg?height=800&width=600",
         "bio": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
         "social": { "linkedin": "#", "twitter": "#" }
       },
       {
         "id": 5,
-        "name": "Lennart",
-        "role": "lorem",
-        "image": "/LENNART.png?height=800&width=600",
+        "name": "Cohen",
+        "role": "Treasurer",
+        "image": "/Headshots/cohen.jpg?height=800&width=600",
         "bio": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
         "social": { "linkedin": "#", "twitter": "#" }
       },
@@ -118,7 +118,7 @@
         "id": 6,
         "name": "LUCA",
         "role": "lorem",
-        "image": "/LUCA.png?height=800&width=600",
+        "image": "/Headshots/LUCA.png?height=800&width=600",
         "bio": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
         "social": { "linkedin": "#", "twitter": "#" }
       }

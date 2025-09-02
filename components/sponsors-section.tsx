@@ -1,11 +1,11 @@
 "use client"
 
 const sponsors = [
-  { name: "Eigen", logo: "/eigenlayerlogotwo.webp" },
+  { name: "Eigen", logo: "/SponsorMedia/eigencloud-white.png" },
   { name: "Coinbase", logo: "/coinbase-logo.png" },
   { name: "Jupiter", logo: "/jupiter.png" },
-  { name: "Sonic", logo: "/sonic.avif" },
-  { name: "Sui", logo: "/sui.png" },
+  { name: "Sonic", logo: "/SponsorMedia/FullLogo_Sonic_White.png" },
+  { name: "Sui", logo: "/SponsorMedia/Sui.png" },
   { name: "Ethereum", logo: "/eth.webp" },
   { name: "Wu", logo: "/wu.webp" },
   { name: "Ethereum Single", logo: "/ethsingle.png" },

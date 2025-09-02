@@ -74,7 +74,7 @@ export default function LandingPage() {
         <div id="home" ref={heroRef}>
           <HeroSection />
         </div>
-        <div id="team" ref={teamRef}>
+        <div id="team" ref={teamRef} className="pt-20">
           <ExecTeamSection />
         </div>
         <div id="timeline" ref={timelineRef}>
