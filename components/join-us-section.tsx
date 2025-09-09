@@ -20,9 +20,11 @@ export const JoinUsSection: FC = () => {
           >
             <div>
               <h2
-                className="text-4xl md:text-6xl lg:text-7xl font-extrabold tracking-tighter mb-6 text-brand-primary"
+                className="text-4xl md:text-6xl lg:text-7xl font-extrabold tracking-tighter mb-6"
               >
-                {content.join.heading}
+                <span className="text-white">WANT TO </span>
+                <span className="text-brand-primary">LEARN</span>
+                <span className="text-white"> MORE?</span>
               </h2>
               <div className="text-3xl md:text-4xl font-bold text-brand-primary mb-8">{content.join.membersCount}</div>
             </div>
