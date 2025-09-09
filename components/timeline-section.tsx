@@ -64,7 +64,7 @@ const events: TimelineEvent[] = [
     tags: ["Conference", "Global"],
     position: "above",
     x: 5800,
-    image: "/Travel Pics/Vienna/IMG_1875.HEIC"
+    image: "/Travel Pics/Vienna/crabvienna.jpeg"
   },
   {
     year: "2024",

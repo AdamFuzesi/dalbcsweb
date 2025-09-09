@@ -110,6 +110,12 @@ export function FrameComponent({
                 fill
                 className="object-cover"
                 sizes="(max-width: 768px) 100vw, 33vw"
+                onError={(e) => {
+                  console.error(`Failed to load image: ${media}`, e);
+                }}
+                onLoad={() => {
+                  console.log(`Successfully loaded image: ${media}`);
+                }}
               />
             )}
           </div>

@@ -53,7 +53,7 @@ const initialFrames: Frame[] = [
   },
   {
     id: 3,
-    media: "/Events/Pizza Day/photo_1_2025-08-14_15-59-30.jpg",
+    media: "/Events/Pizza Day/photo_1_2025-08-14_15-55-08.jpg",
     mediaType: "image",
     defaultPos: { x: 8, y: 0, w: 4, h: 4 },
     title: "Community Pizza Day",
@@ -109,7 +109,7 @@ const initialFrames: Frame[] = [
   },
   {
     id: 7,
-    media: "/Travel Pics/Vienna/IMG_1875.HEIC",
+    media: "/Travel Pics/Vienna/crabvienna.jpeg",
     mediaType: "image",
     defaultPos: { x: 0, y: 8, w: 4, h: 4 },
     title: "Vienna Blockchain Week",

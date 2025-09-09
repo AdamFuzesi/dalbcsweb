@@ -118,7 +118,7 @@ export default function BackgroundPaths({
             transition={{ duration: 0.8, ease: "easeOut" }}
             className="text-center flex flex-col items-center"
           >
-             <h1 className="text-6xl md:text-8xl lg:text-9xl font-extrabold tracking-tighter text-white mt-32">
+             <h1 className="text-6xl md:text-8xl lg:text-9xl font-extrabold tracking-tighter text-white mt-8">
               {words.map((word, wordIndex) => (
                 <span key={wordIndex} className="inline-block mr-3 last:mr-0">
                   {word.split("").map((letter, letterIndex) => (
@@ -141,8 +141,8 @@ export default function BackgroundPaths({
               ))}
             </h1>
 
-              <p className="mt-8 text-lg md:text-xl text-brand-accent max-w-md mx-auto mb-64">
-                Insights, updates, and stories from <span className="text-white font-semibold">Dalhousie Blockchain Society</span>
+              <p className="mt-8 text-lg md:text-xl text-brand-accent max-w-md mx-auto mb-32">
+                Insights, updates, and stories from <span className="font-semibold">Dalhousie Blockchain Society</span>
               </p>
  
              {/* Centered button below the text */}
@@ -167,16 +167,6 @@ export default function BackgroundPaths({
            </motion.div>
         </div>
 
-        {/* Scroll indicator */}
-        <motion.div 
-          className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-20"
-          animate={{ y: [0, 10, 0] }}
-          transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
-        >
-          <div className="w-6 h-10 border-2 border-white/30 rounded-full flex justify-center">
-            <div className="w-1 h-3 bg-white/50 rounded-full mt-2"></div>
-          </div>
-        </motion.div>
       </section>
 
       {/* Second Section - Blog Content */}

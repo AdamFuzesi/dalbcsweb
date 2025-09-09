@@ -20,11 +20,11 @@ export function BlogContent() {
               className="text-4xl md:text-6xl font-light italic text-white/80 tracking-tighter leading-[130%]"
               style={{ fontSize: `${4 * headerSize}rem` }}
             >
-              Block
+              Chain
               <br />
               by
               <br />
-              Block?
+              Chain?
             </h1>
             <div
               className="flex flex-col gap-12 text-white/50 text-sm font-light max-w-[300px]"
