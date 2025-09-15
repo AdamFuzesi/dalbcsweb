@@ -6,9 +6,12 @@ import { FrameComponent } from "./frame-component"
 import { Slider } from "@/components/ui/slider"
 import { Button } from "@/components/ui/button"
 import { Switch } from "@/components/ui/switch"
+import siteContent from "@/content/site-content.json"
+import { useRouter } from "next/navigation"
 
 interface Frame {
   id: number
+  slug: string
   media: string
   mediaType: "video" | "image"
   defaultPos: { x: number; y: number; w: number; h: number }
@@ -22,144 +25,37 @@ interface Frame {
   isHovered: boolean
 }
 
-const initialFrames: Frame[] = [
-  {
-    id: 1,
-    media: "/Events/EF Campus Tour/photo_1_2025-08-14_15-51-30.jpg",
-    mediaType: "image",
-    defaultPos: { x: 0, y: 0, w: 4, h: 4 },
-    title: "Ethereum Foundation Campus Tour",
-    description: "Hosting the Ethereum Foundation team for an exclusive campus tour and blockchain education session.",
-    date: "August 2024",
-    mediaSize: 1,
-    borderThickness: 0,
-    borderSize: 80,
-    autoplayMode: "all",
-    isHovered: false,
-  },
-  {
-    id: 2,
-    media: "/Events/First Fall 2024 Meeting/photo_1_2025-08-14_15-58-23.jpg",
-    mediaType: "image",
-    defaultPos: { x: 4, y: 0, w: 4, h: 4 },
-    title: "First Fall 2024 Meeting",
-    description: "Kicking off the new academic year with our largest membership meeting to date.",
-    date: "September 2024",
-    mediaSize: 1,
-    borderThickness: 0,
-    borderSize: 80,
-    autoplayMode: "all",
-    isHovered: false,
-  },
-  {
-    id: 3,
-    media: "/Events/Pizza Day/photo_1_2025-08-14_15-55-08.jpg",
-    mediaType: "image",
-    defaultPos: { x: 8, y: 0, w: 4, h: 4 },
-    title: "Community Pizza Day",
-    description: "Building connections and fostering community through our monthly pizza networking events.",
-    date: "October 2024",
-    mediaSize: 1,
-    borderThickness: 0,
-    borderSize: 80,
-    autoplayMode: "all",
-    isHovered: false,
-  },
-  {
-    id: 4,
-    media: "/Travel Pics/Toronto/IMG_7153.JPG",
-    mediaType: "image",
-    defaultPos: { x: 0, y: 4, w: 4, h: 4 },
-    title: "Toronto Blockchain Conference",
-    description: "Representing Dal Blockchain at major industry conferences and networking events.",
-    date: "November 2024",
-    mediaSize: 1,
-    borderThickness: 0,
-    borderSize: 80,
-    autoplayMode: "all",
-    isHovered: false,
-  },
-  {
-    id: 5,
-    media: "/Travel Pics/Denver/photo_10_2025-03-18_15-48-03.jpg",
-    mediaType: "image",
-    defaultPos: { x: 4, y: 4, w: 4, h: 4 },
-    title: "Denver Blockchain Summit",
-    description: "Participating in hackathons and learning from industry leaders in the blockchain space.",
-    date: "March 2024",
-    mediaSize: 1,
-    borderThickness: 0,
-    borderSize: 80,
-    autoplayMode: "all",
-    isHovered: false,
-  },
-  {
-    id: 6,
-    media: "/Travel Pics/Turkiye/IMG_6564 (1).JPG",
-    mediaType: "image",
-    defaultPos: { x: 8, y: 4, w: 4, h: 4 },
-    title: "International Research Collaboration",
-    description: "Collaborating with international institutions on blockchain research and development.",
-    date: "June 2024",
-    mediaSize: 1,
-    borderThickness: 0,
-    borderSize: 80,
-    autoplayMode: "all",
-    isHovered: false,
-  },
-  {
-    id: 7,
-    media: "/Travel Pics/Vienna/crabvienna.jpeg",
-    mediaType: "image",
-    defaultPos: { x: 0, y: 8, w: 4, h: 4 },
-    title: "Vienna Blockchain Week",
-    description: "Attending Europe's premier blockchain conference and representing Canadian blockchain education.",
-    date: "May 2024",
-    mediaSize: 1,
-    borderThickness: 0,
-    borderSize: 80,
-    autoplayMode: "all",
-    isHovered: false,
-  },
-  {
-    id: 8,
-    media: "/Travel Pics/Michigan/photo_1_2025-07-22_16-24-36.jpg",
-    mediaType: "image",
-    defaultPos: { x: 4, y: 8, w: 4, h: 4 },
-    title: "Michigan Blockchain Alliance",
-    description: "Partnering with US universities to advance blockchain education and research initiatives.",
-    date: "July 2024",
-    mediaSize: 1,
-    borderThickness: 0,
-    borderSize: 80,
-    autoplayMode: "all",
-    isHovered: false,
-  },
-  {
-    id: 9,
-    media: "/Headshots/ADAM.png",
-    mediaType: "image",
-    defaultPos: { x: 8, y: 8, w: 4, h: 4 },
-    title: "Leadership Spotlight",
-    description: "Meet the team behind Dal Blockchain Society and learn about our vision for the future.",
-    date: "December 2024",
-    mediaSize: 1,
-    borderThickness: 0,
-    borderSize: 80,
-    autoplayMode: "all",
-    isHovered: false,
-  },
-]
+// Convert blog posts from JSON to Frame format
+const initialFrames: Frame[] = siteContent.blog.posts.map((post) => ({
+  id: post.id,
+  slug: post.slug,
+  media: post.media,
+  mediaType: post.mediaType as "video" | "image",
+  defaultPos: { x: post.position.x, y: post.position.y, w: post.position.w, h: post.position.h },
+  title: post.title,
+  description: post.description,
+  date: post.date,
+  mediaSize: 1,
+  borderThickness: 0,
+  borderSize: 80,
+  autoplayMode: "all" as const,
+  isHovered: false,
+}))
 
 export function DynamicFrameLayout() {
+  const router = useRouter()
   const [frames, setFrames] = useState<Frame[]>(initialFrames)
-  const [hovered, setHovered] = useState<{ row: number; col: number } | null>(null)
+  const [hovered, setHovered] = useState<{ row: number; col: number } | null>({ row: 0, col: 0 })
+  const [actuallyHovered, setActuallyHovered] = useState<{ row: number; col: number } | null>(null)
   const [hoverSize, setHoverSize] = useState(6)
   const [gapSize, setGapSize] = useState(4)
   const [showControls, setShowControls] = useState(false)
   const [cleanInterface, setCleanInterface] = useState(true)
-  const [showFrames, setShowFrames] = useState(false)
-  const [autoplayMode, setAutoplayMode] = useState<"all" | "hover">("all")
+  const [autoplayMode] = useState<"hover">("hover")
+
+  const handleFrameClick = (slug: string) => {
+    router.push(`/blog/${slug}`)
+  }
 
   const getRowSizes = () => {
     if (hovered === null) {
@@ -202,26 +98,6 @@ export function DynamicFrameLayout() {
 
   return (
     <div className="space-y-4 w-full h-full">
-      <div className="flex justify-between items-center mb-4">
-        <div className="flex items-center space-x-4">
-          <div className="flex items-center space-x-2">
-            <Switch id="frame-toggle" checked={showFrames} onCheckedChange={setShowFrames} />
-            <label htmlFor="frame-toggle" className="text-sm text-white/70">
-              {showFrames ? "Hide Frames" : "Show Frames"}
-            </label>
-          </div>
-          <div className="flex items-center space-x-2">
-            <Switch
-              id="autoplay-toggle"
-              checked={autoplayMode === "all"}
-              onCheckedChange={(checked) => setAutoplayMode(checked ? "all" : "hover")}
-            />
-            <label htmlFor="autoplay-toggle" className="text-sm text-white/70">
-              {autoplayMode === "all" ? "Always Show" : "Show on Hover"}
-            </label>
-          </div>
-        </div>
-      </div>
       {!cleanInterface && (
         <div className="flex justify-between items-center">
           <h2 className="text-2xl font-bold text-white">Blog Posts</h2>
@@ -279,13 +155,20 @@ export function DynamicFrameLayout() {
           return (
             <motion.div
               key={frame.id}
-              className="relative"
+              className="relative cursor-pointer"
               style={{
                 transformOrigin,
                 transition: "transform 0.4s ease",
               }}
-              onMouseEnter={() => setHovered({ row, col })}
-              onMouseLeave={() => setHovered(null)}
+              onMouseEnter={() => {
+                setHovered({ row, col })
+                setActuallyHovered({ row, col })
+              }}
+              onMouseLeave={() => {
+                setHovered({ row: 0, col: 0 })
+                setActuallyHovered(null)
+              }}
+              onClick={() => handleFrameClick(frame.slug)}
             >
               <FrameComponent
                 media={frame.media}
@@ -304,11 +187,15 @@ export function DynamicFrameLayout() {
                 onBorderSizeChange={(value) => updateFrameProperty(frame.id, "borderSize", value)}
                 showControls={showControls && !cleanInterface}
                 label={`Post ${frame.id}`}
-                showFrame={showFrames}
+                showFrame={false}
                 autoplayMode={autoplayMode}
                 isHovered={
-                  hovered?.row === Math.floor(frame.defaultPos.y / 4) &&
-                  hovered?.col === Math.floor(frame.defaultPos.x / 4)
+                  actuallyHovered?.row === Math.floor(frame.defaultPos.y / 4) &&
+                  actuallyHovered?.col === Math.floor(frame.defaultPos.x / 4)
+                }
+                showOverlay={
+                  actuallyHovered?.row === Math.floor(frame.defaultPos.y / 4) &&
+                  actuallyHovered?.col === Math.floor(frame.defaultPos.x / 4)
                 }
               />
             </motion.div>

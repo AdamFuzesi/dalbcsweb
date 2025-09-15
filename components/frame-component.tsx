@@ -23,6 +23,7 @@ interface FrameComponentProps {
   showFrame: boolean
   autoplayMode: "all" | "hover"
   isHovered: boolean
+  showOverlay?: boolean
 }
 
 export function FrameComponent({
@@ -45,6 +46,7 @@ export function FrameComponent({
   showFrame,
   autoplayMode,
   isHovered,
+  showOverlay = true,
 }: FrameComponentProps) {
   const videoRef = useRef<HTMLVideoElement>(null)
 
@@ -124,7 +126,7 @@ export function FrameComponent({
         {/* Content Overlay - Shows on hover */}
         <div 
           className={`absolute inset-0 bg-black/80 flex flex-col justify-end p-4 transition-opacity duration-300 ${
-            isHovered || autoplayMode === "all" ? "opacity-100" : "opacity-0"
+            (isHovered && showOverlay) || autoplayMode === "all" ? "opacity-100" : "opacity-0"
           }`}
           style={{ zIndex: 2 }}
         >

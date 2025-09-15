@@ -125,5 +125,236 @@
       "messagePlaceholder": "Your Message",
       "submitLabel": "Send Message"
     }
+  },
+  "blog": {
+    "heading": "Block by Block",
+    "subheading": "Insights, updates, and stories from Dalhousie Blockchain Society",
+    "content": {
+      "title": "Chain\nby\nChain?",
+      "paragraphs": [
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat",
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat",
+        "Here are some of our recent highlights and stories."
+      ],
+      "ctaButton": "Join Our Community"
+    },
+    "posts": [
+      {
+        "id": 1,
+        "slug": "ethereum-foundation-campus-tour",
+        "media": "/Events/EF Campus Tour/photo_1_2025-08-14_15-51-30.jpg",
+        "mediaType": "image",
+        "title": "Ethereum Foundation Campus Tour",
+        "description": "Hosting the Ethereum Foundation team for an exclusive campus tour and blockchain education session.",
+        "date": "August 2024",
+        "position": { "x": 0, "y": 0, "w": 4, "h": 4 },
+        "content": {
+          "intro": "A historic day for Dalhousie Blockchain Society as we welcomed the Ethereum Foundation team to our campus.",
+          "body": [
+            "In August 2024, we had the incredible opportunity to host members of the Ethereum Foundation for an exclusive campus tour and educational session. This landmark event brought together students, faculty, and blockchain enthusiasts to learn directly from the pioneers of Ethereum.",
+            "The session covered the latest developments in Ethereum 2.0, the transition to proof-of-stake, and the future roadmap for the network. Our members gained invaluable insights into the technical aspects of blockchain development and the philosophical foundations of decentralized systems.",
+            "This visit reinforced our commitment to bridging the gap between academic learning and real-world blockchain innovation. The Ethereum Foundation's endorsement of our educational mission has opened new doors for collaboration and learning opportunities."
+          ],
+          "highlights": [
+            "Direct interaction with Ethereum Foundation team members",
+            "Technical deep-dive into Ethereum 2.0 architecture",
+            "Q&A session covering development and career opportunities",
+            "Networking opportunities with industry leaders"
+          ]
+        }
+      },
+      {
+        "id": 2,
+        "slug": "first-fall-2024-meeting",
+        "media": "/Events/First Fall 2024 Meeting/photo_1_2025-08-14_15-58-23.jpg",
+        "mediaType": "image",
+        "title": "First Fall 2024 Meeting",
+        "description": "Kicking off the new academic year with our largest membership meeting to date.",
+        "date": "September 2024",
+        "position": { "x": 4, "y": 0, "w": 4, "h": 4 },
+        "content": {
+          "intro": "Our biggest semester launch yet, welcoming over 100 new and returning members to the Dalhousie Blockchain Society.",
+          "body": [
+            "September 2024 marked a milestone for our organization as we hosted our largest membership meeting to date. With over 100 attendees, the energy in the room was electric as students from all faculties came together to explore the world of blockchain technology.",
+            "The meeting featured presentations from our executive team, outlining our ambitious plans for the academic year. We introduced new educational tracks, announced upcoming hackathons, and revealed our expanded partnership program with industry leaders.",
+            "What made this meeting special was the diversity of our new members - from computer science students to business majors, from complete beginners to experienced developers. This cross-disciplinary approach is exactly what blockchain education needs."
+          ],
+          "highlights": [
+            "Record-breaking attendance of 100+ members",
+            "Introduction of new educational tracks",
+            "Announcement of partnership expansions",
+            "Cross-faculty participation and engagement"
+          ]
+        }
+      },
+      {
+        "id": 3,
+        "slug": "community-pizza-day",
+        "media": "/Events/Pizza Day/photo_1_2025-08-14_15-55-08.jpg",
+        "mediaType": "image",
+        "title": "Community Pizza Day",
+        "description": "Building connections and fostering community through our monthly pizza networking events.",
+        "date": "October 2024",
+        "position": { "x": 8, "y": 0, "w": 4, "h": 4 },
+        "content": {
+          "intro": "Sometimes the best learning happens over a slice of pizza. Our monthly community events create lasting connections.",
+          "body": [
+            "Our monthly Pizza Days have become a cornerstone of the Dalhousie Blockchain Society experience. These informal gatherings provide a relaxed environment where members can connect, share ideas, and learn from each other outside the traditional classroom setting.",
+            "October's Pizza Day was particularly special, featuring lightning talks from our members about their blockchain projects, internship experiences, and research interests. The casual format encourages participation from members who might be hesitant to speak in formal settings.",
+            "These events embody our belief that community building is just as important as technical education. The relationships formed over pizza often lead to study groups, project collaborations, and lifelong friendships."
+          ],
+          "highlights": [
+            "Monthly community building tradition",
+            "Lightning talks from member projects",
+            "Informal networking and mentorship",
+            "Cross-year collaboration opportunities"
+          ]
+        }
+      },
+      {
+        "id": 4,
+        "slug": "toronto-blockchain-conference",
+        "media": "/Travel Pics/Toronto/IMG_7153.JPG",
+        "mediaType": "image",
+        "title": "Toronto Blockchain Conference",
+        "description": "Representing Dal Blockchain at major industry conferences and networking events.",
+        "date": "November 2024",
+        "position": { "x": 0, "y": 4, "w": 4, "h": 4 },
+        "content": {
+          "intro": "Taking our learning beyond campus borders to connect with the broader Canadian blockchain ecosystem.",
+          "body": [
+            "In November 2024, a delegation from Dalhousie Blockchain Society traveled to Toronto to represent our university at one of Canada's premier blockchain conferences. This experience provided our members with exposure to cutting-edge developments and networking opportunities with industry professionals.",
+            "Our members attended sessions on DeFi innovations, NFT marketplaces, and regulatory developments in the Canadian crypto space. The conference also featured workshops on smart contract development and blockchain security best practices.",
+            "The trip exemplified our commitment to connecting academic learning with real-world applications. Our members returned with new perspectives, potential internship opportunities, and a deeper understanding of the blockchain industry landscape."
+          ],
+          "highlights": [
+            "Representation at premier Canadian blockchain event",
+            "Exposure to cutting-edge industry developments",
+            "Networking with Canadian blockchain professionals",
+            "Workshop participation and skill development"
+          ]
+        }
+      },
+      {
+        "id": 5,
+        "slug": "denver-blockchain-summit",
+        "media": "/Travel Pics/Denver/photo_10_2025-03-18_15-48-03.jpg",
+        "mediaType": "image",
+        "title": "Denver Blockchain Summit",
+        "description": "Participating in hackathons and learning from industry leaders in the blockchain space.",
+        "date": "March 2024",
+        "position": { "x": 4, "y": 4, "w": 4, "h": 4 },
+        "content": {
+          "intro": "High altitude, high impact. Our Denver expedition showcased the global reach of blockchain innovation.",
+          "body": [
+            "The Denver Blockchain Summit provided an incredible opportunity for our members to immerse themselves in the American blockchain ecosystem. The event featured some of the most innovative projects and thought leaders in the space.",
+            "Our team participated in a 48-hour hackathon, developing a decentralized application for supply chain transparency. While we didn't win, the experience of building under pressure and receiving feedback from industry experts was invaluable.",
+            "The summit also featured panel discussions on the future of Web3, regulatory challenges, and the role of universities in blockchain education. These sessions provided crucial insights that we've incorporated into our own educational programming."
+          ],
+          "highlights": [
+            "48-hour hackathon participation",
+            "Supply chain DApp development",
+            "Industry expert feedback and mentorship",
+            "Web3 future trends and insights"
+          ]
+        }
+      },
+      {
+        "id": 6,
+        "slug": "international-research-collaboration",
+        "media": "/Travel Pics/Turkiye/IMG_6564 (1).JPG",
+        "mediaType": "image",
+        "title": "International Research Collaboration",
+        "description": "Collaborating with international institutions on blockchain research and development.",
+        "date": "June 2024",
+        "position": { "x": 8, "y": 4, "w": 4, "h": 4 },
+        "content": {
+          "intro": "Blockchain knows no borders. Our international collaborations are expanding the horizons of our research and education.",
+          "body": [
+            "Our June 2024 trip to Turkey marked the beginning of an exciting international collaboration with leading universities in blockchain research. This partnership focuses on developing educational frameworks that can be adapted across different cultural and regulatory contexts.",
+            "During our visit, we participated in joint research sessions exploring the intersection of blockchain technology and traditional financial systems. The cultural exchange provided unique perspectives on how different societies approach decentralization and digital currencies.",
+            "This collaboration has resulted in a joint research paper on blockchain adoption patterns and has opened doors for student exchange programs. It exemplifies our vision of blockchain as a global, unifying technology."
+          ],
+          "highlights": [
+            "Joint international research initiatives",
+            "Cross-cultural blockchain education frameworks",
+            "Student exchange program development",
+            "Global perspective on blockchain adoption"
+          ]
+        }
+      },
+      {
+        "id": 7,
+        "slug": "vienna-blockchain-week",
+        "media": "/Travel Pics/Vienna/crabvienna.jpeg",
+        "mediaType": "image",
+        "title": "Vienna Blockchain Week",
+        "description": "Attending Europe's premier blockchain conference and representing Canadian blockchain education.",
+        "date": "May 2024",
+        "position": { "x": 0, "y": 8, "w": 4, "h": 4 },
+        "content": {
+          "intro": "From Halifax to Vienna - showcasing Canadian blockchain education on the European stage.",
+          "body": [
+            "Vienna Blockchain Week 2024 was a transformative experience for our society members. As one of Europe's most prestigious blockchain events, it provided unparalleled access to the latest developments in the European crypto ecosystem.",
+            "Our delegation presented on the Canadian approach to blockchain education, highlighting how our university-based societies are fostering innovation and talent development. The presentation was well-received and led to several collaboration opportunities with European institutions.",
+            "The week-long event included workshops on regulatory compliance, technical sessions on Layer 2 solutions, and networking events with some of Europe's most successful blockchain entrepreneurs. These connections continue to benefit our members through mentorship and internship opportunities."
+          ],
+          "highlights": [
+            "European blockchain ecosystem exposure",
+            "Presentation on Canadian blockchain education",
+            "Layer 2 technical workshops",
+            "European entrepreneur networking"
+          ]
+        }
+      },
+      {
+        "id": 8,
+        "slug": "michigan-blockchain-alliance",
+        "media": "/Travel Pics/Michigan/photo_1_2025-07-22_16-24-36.jpg",
+        "mediaType": "image",
+        "title": "Michigan Blockchain Alliance",
+        "description": "Partnering with US universities to advance blockchain education and research initiatives.",
+        "date": "July 2024",
+        "position": { "x": 4, "y": 8, "w": 4, "h": 4 },
+        "content": {
+          "intro": "Building bridges across borders - our partnership with Michigan universities is strengthening North American blockchain education.",
+          "body": [
+            "Our July 2024 collaboration with the Michigan Blockchain Alliance represents a significant step in our mission to advance blockchain education across North America. This partnership brings together students and faculty from multiple universities to share resources and expertise.",
+            "The alliance focuses on developing standardized blockchain curricula that can be implemented across different institutions. Our contribution includes our successful community-building model and our practical approach to hands-on blockchain development.",
+            "Joint projects emerging from this alliance include cross-border hackathons, shared research initiatives, and student exchange programs. These collaborations are creating a stronger, more connected blockchain education ecosystem."
+          ],
+          "highlights": [
+            "Multi-university blockchain alliance formation",
+            "Standardized curriculum development",
+            "Cross-border educational initiatives",
+            "Shared research and development projects"
+          ]
+        }
+      },
+      {
+        "id": 9,
+        "slug": "leadership-spotlight",
+        "media": "/Headshots/ADAM.png",
+        "mediaType": "image",
+        "title": "Leadership Spotlight",
+        "description": "Meet the team behind Dal Blockchain Society and learn about our vision for the future.",
+        "date": "December 2024",
+        "position": { "x": 8, "y": 8, "w": 4, "h": 4 },
+        "content": {
+          "intro": "Behind every great organization are the people who make it happen. Meet the leaders driving our vision forward.",
+          "body": [
+            "The success of Dalhousie Blockchain Society is built on the dedication and vision of our leadership team. Each member brings unique skills and perspectives that contribute to our comprehensive approach to blockchain education and community building.",
+            "Our leadership philosophy emphasizes collaborative decision-making, transparency, and continuous learning. We believe that the best leaders in the blockchain space are those who remain students themselves, always eager to learn and adapt.",
+            "As we look toward the future, our leadership team is focused on scaling our impact while maintaining the close-knit community feel that makes our society special. This includes expanding our educational offerings, deepening industry partnerships, and creating more opportunities for member engagement."
+          ],
+          "highlights": [
+            "Collaborative leadership approach",
+            "Commitment to continuous learning",
+            "Focus on scalable community building",
+            "Strategic vision for future growth"
+          ]
+        }
+      }
+    ]
   }
 } 
