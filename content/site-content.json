@@ -142,7 +142,7 @@
       {
         "id": 1,
         "slug": "ethereum-foundation-campus-tour",
-        "media": "/Events/EF Campus Tour/photo_1_2025-08-14_15-51-30.jpg",
+        "media": "/Events/EF%20Campus%20Tour/photo_1_2025-08-14_15-51-30.jpg",
         "mediaType": "image",
         "title": "Ethereum Foundation Campus Tour",
         "description": "Hosting the Ethereum Foundation team for an exclusive campus tour and blockchain education session.",
@@ -166,7 +166,7 @@
       {
         "id": 2,
         "slug": "first-fall-2024-meeting",
-        "media": "/Events/First Fall 2024 Meeting/photo_1_2025-08-14_15-58-23.jpg",
+        "media": "/Events/First%20Fall%202024%20Meeting/photo_1_2025-08-14_15-58-23.jpg",
         "mediaType": "image",
         "title": "First Fall 2024 Meeting",
         "description": "Kicking off the new academic year with our largest membership meeting to date.",
@@ -190,7 +190,7 @@
       {
         "id": 3,
         "slug": "community-pizza-day",
-        "media": "/Events/Pizza Day/photo_1_2025-08-14_15-55-08.jpg",
+        "media": "/Events/Pizza%20Day/photo_1_2025-08-14_15-55-08.jpg",
         "mediaType": "image",
         "title": "Community Pizza Day",
         "description": "Building connections and fostering community through our monthly pizza networking events.",
@@ -214,7 +214,7 @@
       {
         "id": 4,
         "slug": "toronto-blockchain-conference",
-        "media": "/Travel Pics/Toronto/IMG_7153.JPG",
+        "media": "/Travel%20Pics/Toronto/IMG_7153.JPG",
         "mediaType": "image",
         "title": "Toronto Blockchain Conference",
         "description": "Representing Dal Blockchain at major industry conferences and networking events.",
@@ -238,7 +238,7 @@
       {
         "id": 5,
         "slug": "denver-blockchain-summit",
-        "media": "/Travel Pics/Denver/photo_10_2025-03-18_15-48-03.jpg",
+        "media": "/Travel%20Pics/Denver/photo_10_2025-03-18_15-48-03.jpg",
         "mediaType": "image",
         "title": "Denver Blockchain Summit",
         "description": "Participating in hackathons and learning from industry leaders in the blockchain space.",
@@ -262,7 +262,7 @@
       {
         "id": 6,
         "slug": "international-research-collaboration",
-        "media": "/Travel Pics/Turkiye/IMG_6564 (1).JPG",
+        "media": "/Travel%20Pics/Turkiye/IMG_6564%20(1).JPG",
         "mediaType": "image",
         "title": "International Research Collaboration",
         "description": "Collaborating with international institutions on blockchain research and development.",
@@ -286,7 +286,7 @@
       {
         "id": 7,
         "slug": "vienna-blockchain-week",
-        "media": "/Travel Pics/Vienna/crabvienna.jpeg",
+        "media": "/Travel%20Pics/Vienna/crabvienna.jpeg",
         "mediaType": "image",
         "title": "Vienna Blockchain Week",
         "description": "Attending Europe's premier blockchain conference and representing Canadian blockchain education.",
@@ -310,7 +310,7 @@
       {
         "id": 8,
         "slug": "michigan-blockchain-alliance",
-        "media": "/Travel Pics/Michigan/photo_1_2025-07-22_16-24-36.jpg",
+        "media": "/Travel%20Pics/Michigan/photo_1_2025-07-22_16-24-36.jpg",
         "mediaType": "image",
         "title": "Michigan Blockchain Alliance",
         "description": "Partnering with US universities to advance blockchain education and research initiatives.",

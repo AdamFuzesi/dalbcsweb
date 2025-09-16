@@ -6,18 +6,61 @@ import Image from "next/image"
 import { Button } from "@/components/ui/button"
 import { Header } from "@/components/header"
 import { ArrowLeft, Calendar, Users, MapPin } from "lucide-react"
-import { useRouter } from "next/navigation"
+import { useRouter, useParams } from "next/navigation"
 import siteContent from "@/content/site-content.json"
+import { useEffect, useState } from "react"
 
-interface BlogPostPageProps {
-  params: {
-    slug: string
+interface BlogPost {
+  id: number
+  slug: string
+  media: string
+  mediaType: string
+  title: string
+  description: string
+  date: string
+  position: { x: number; y: number; w: number; h: number }
+  content: {
+    intro: string
+    body: string[]
+    highlights: string[]
   }
 }
 
-export default function BlogPostPage({ params }: BlogPostPageProps) {
+export default function BlogPostPage() {
   const router = useRouter()
-  const post = siteContent.blog.posts.find((p) => p.slug === params.slug)
+  const params = useParams()
+  const [post, setPost] = useState<BlogPost | null>(null)
+  const [loading, setLoading] = useState(true)
+
+  useEffect(() => {
+    if (params?.slug) {
+      try {
+        const foundPost = siteContent.blog.posts.find((p) => p.slug === params.slug)
+        if (!foundPost) {
+          console.error(`Post not found for slug: ${params.slug}`)
+          notFound()
+        } else {
+          setPost(foundPost as BlogPost)
+        }
+      } catch (error) {
+        console.error('Error loading blog post:', error)
+        notFound()
+      } finally {
+        setLoading(false)
+      }
+    }
+  }, [params])
+
+  if (loading) {
+    return (
+      <div className="min-h-screen bg-brand-background text-white flex items-center justify-center">
+        <div className="text-center">
+          <div className="w-8 h-8 border-2 border-brand-primary border-t-transparent rounded-full animate-spin mx-auto mb-4"></div>
+          <p className="text-brand-accent">Loading...</p>
+        </div>
+      </div>
+    )
+  }
 
   if (!post) {
     notFound()
@@ -70,6 +113,12 @@ export default function BlogPostPage({ params }: BlogPostPageProps) {
               className="object-cover"
               sizes="(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 1200px"
               priority
+              onError={(e) => {
+                console.error(`Failed to load image: ${post.media}`, e)
+              }}
+              onLoad={() => {
+                console.log(`Successfully loaded image: ${post.media}`)
+              }}
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
             
