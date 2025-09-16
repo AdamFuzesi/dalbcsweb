@@ -111,7 +111,7 @@ export default function BackgroundPaths({
         </div>
 
         <div className="relative z-10 container mx-auto px-4 sm:px-6 lg:px-8 h-screen flex items-center">
-          <div className="w-full grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-start">
+          <div className="w-full grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8 lg:gap-16 items-center lg:items-start">
             {/* Left side - Title and Subtext */}
             <motion.div
               initial={{ opacity: 0, x: -50 }}
@@ -119,7 +119,7 @@ export default function BackgroundPaths({
               transition={{ duration: 0.8, ease: "easeOut" }}
               className="text-left"
             >
-              <h1 className="text-6xl md:text-8xl lg:text-9xl font-extrabold tracking-tighter leading-tight">
+              <h1 className="text-4xl sm:text-5xl md:text-8xl lg:text-9xl font-extrabold tracking-tighter leading-tight">
                 <div className="block text-white">Block</div>
                 <div className="block">
                   <span className="text-white">By </span>
@@ -127,7 +127,7 @@ export default function BackgroundPaths({
                 </div>
               </h1>
 
-              <p className="mt-8 text-lg md:text-xl text-white max-w-lg">
+              <p className="mt-6 sm:mt-8 text-base sm:text-lg md:text-xl text-white max-w-lg">
                 Insights, updates, and stories from <span className="font-semibold">Dalhousie Blockchain Society</span>
               </p>
             </motion.div>
@@ -137,13 +137,13 @@ export default function BackgroundPaths({
               initial={{ opacity: 0, x: 50 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
-              className="flex justify-start lg:justify-center items-start pt-8 lg:pt-[calc(6rem+8rem+2rem)]"
+              className="flex justify-center lg:justify-center items-center pt-4 lg:pt-[calc(6rem+8rem+2rem)]"
             >
               <Button
                 variant="outline"
                 size="lg"
                 onClick={scrollToBlogContent}
-                className="border-2 border-white/20 text-white font-bold rounded-full group hover:bg-brand-primary hover:text-brand-background hover:border-brand-primary transition-all duration-300 px-8 py-6 text-lg bg-transparent backdrop-blur-sm"
+                className="border-2 border-white/20 text-white font-bold rounded-full group hover:bg-brand-primary hover:text-brand-background hover:border-brand-primary transition-all duration-300 px-6 sm:px-8 py-4 sm:py-6 text-base sm:text-lg bg-transparent backdrop-blur-sm"
               >
                 <span className="opacity-90 group-hover:opacity-100 transition-opacity">Enter Blog</span>
                 <span className="ml-3 opacity-70 group-hover:opacity-100 group-hover:translate-x-1.5 transition-all duration-300">

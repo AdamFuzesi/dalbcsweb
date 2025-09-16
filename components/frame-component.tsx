@@ -1,5 +1,4 @@
 "use client"
-import { Slider } from "@/components/ui/slider"
 import { useEffect, useRef } from "react"
 import Image from "next/image"
 
@@ -70,29 +69,23 @@ export function FrameComponent({
       style={{
         width,
         height,
-        transition: "width 0.3s ease-in-out, height 0.3s ease-in-out",
+        transition: "all 0.6s cubic-bezier(0.4, 0, 0.2, 1)",
       }}
     >
-      <div className="relative w-full h-full overflow-hidden rounded-lg">
+      <div className="relative w-full h-full overflow-hidden rounded-2xl bg-zinc-900/50 backdrop-blur-sm">
         {/* Media Content */}
         <div
           className="absolute inset-0 flex items-center justify-center"
           style={{
             zIndex: 1,
-            transition: "all 0.3s ease-in-out",
-            padding: showFrame ? `${borderThickness}px` : "0",
-            width: showFrame ? `${borderSize}%` : "100%",
-            height: showFrame ? `${borderSize}%` : "100%",
-            left: showFrame ? `${(100 - borderSize) / 2}%` : "0",
-            top: showFrame ? `${(100 - borderSize) / 2}%` : "0",
+            transition: "all 0.6s cubic-bezier(0.4, 0, 0.2, 1)",
+            transform: `scale(${isHovered ? 1.02 : 1})`,
           }}
         >
           <div
-            className="w-full h-full overflow-hidden rounded-lg"
+            className="w-full h-full overflow-hidden rounded-2xl"
             style={{
-              transform: `scale(${mediaSize})`,
-              transformOrigin: "center",
-              transition: "transform 0.3s ease-in-out",
+              transition: "all 0.6s cubic-bezier(0.4, 0, 0.2, 1)",
             }}
           >
             {mediaType === "video" ? (
@@ -107,99 +100,48 @@ export function FrameComponent({
               />
             ) : (
               <Image
-                src={media}
+                src={media || "/placeholder.svg"}
                 alt={title}
                 fill
-                className="object-cover"
+                className="object-cover transition-all duration-700 ease-out"
+                style={{
+                  filter: isHovered ? "brightness(1.1) contrast(1.05)" : "brightness(0.95)",
+                }}
                 sizes="(max-width: 768px) 100vw, 33vw"
                 onError={(e) => {
-                  console.error(`Failed to load image: ${media}`, e);
+                  console.error(`Failed to load image: ${media}`, e)
                 }}
                 onLoad={() => {
-                  console.log(`Successfully loaded image: ${media}`);
+                  console.log(`Successfully loaded image: ${media}`)
                 }}
               />
             )}
           </div>
         </div>
 
-        {/* Content Overlay - Shows on hover */}
-        <div 
-          className={`absolute inset-0 bg-black/80 flex flex-col justify-end p-4 transition-opacity duration-300 ${
-            (isHovered && showOverlay) || autoplayMode === "all" ? "opacity-100" : "opacity-0"
+        <div
+          className={`absolute inset-0 flex flex-col justify-end transition-all duration-500 ease-out ${
+            isHovered && showOverlay ? "opacity-100" : "opacity-0"
           }`}
-          style={{ zIndex: 2 }}
+          style={{
+            zIndex: 2,
+            background: "linear-gradient(to top, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.4) 50%, transparent 100%)",
+          }}
         >
-          <div className="text-white">
-            <div className="text-yellow-400 text-xs font-semibold mb-1 uppercase tracking-wider">
-              {date}
-            </div>
-            <h3 className="text-lg font-bold mb-2 leading-tight">
-              {title}
-            </h3>
-            <p className="text-sm text-gray-300 line-clamp-3">
-              {description}
-            </p>
+          <div className="p-6 text-white">
+            <div className="text-zinc-400 text-xs font-medium mb-2 uppercase tracking-widest">{date}</div>
+            <h3 className="text-xl font-semibold mb-3 leading-tight text-balance">{title}</h3>
+            <p className="text-sm text-zinc-300 line-clamp-2 leading-relaxed">{description}</p>
           </div>
         </div>
 
-        {/* Yellow Border Frame */}
-        {showFrame && (
-          <div 
-            className="absolute inset-0 border-2 border-yellow-400/30 rounded-lg pointer-events-none"
-            style={{ zIndex: 3 }}
-          />
-        )}
+        <div
+          className={`absolute inset-0 rounded-2xl pointer-events-none transition-all duration-500 ${
+            isHovered ? "ring-1 ring-white/20" : ""
+          }`}
+          style={{ zIndex: 3 }}
+        />
       </div>
-
-      {/* Controls */}
-      {showControls && (
-        <div className="absolute bottom-0 left-0 right-0 p-2 bg-black bg-opacity-50 z-10">
-          <div className="text-white font-bold mb-2">{label}</div>
-          <div className="space-y-2">
-            <div>
-              <label htmlFor={`media-size-${label}`} className="block text-sm font-medium text-white">
-                Media Size: {mediaSize.toFixed(2)}
-              </label>
-              <Slider
-                id={`media-size-${label}`}
-                min={0.5}
-                max={3}
-                step={0.01}
-                value={[mediaSize]}
-                onValueChange={(value) => onMediaSizeChange(value[0])}
-              />
-            </div>
-            <div>
-              <label htmlFor={`border-thickness-${label}`} className="block text-sm font-medium text-white">
-                Border Thickness: {borderThickness}px
-              </label>
-              <Slider
-                id={`border-thickness-${label}`}
-                min={0}
-                max={20}
-                step={1}
-                value={[borderThickness]}
-                onValueChange={(value) => onBorderThicknessChange(value[0])}
-              />
-            </div>
-            <div>
-              <label htmlFor={`border-size-${label}`} className="block text-sm font-medium text-white">
-                Border Size: {borderSize}%
-              </label>
-              <Slider
-                id={`border-size-${label}`}
-                min={50}
-                max={100}
-                step={1}
-                value={[borderSize]}
-                onValueChange={(value) => onBorderSizeChange(value[0])}
-              />
-            </div>
-          </div>
-        </div>
-      )}
     </div>
   )
 }
-

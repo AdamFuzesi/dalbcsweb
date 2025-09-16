@@ -170,12 +170,12 @@ export const TimelineSection: FC = () => {
       {/* Timeline Title - Only visible in this section */}
       <div className="sticky top-0 h-0 z-50 pointer-events-none">
         <motion.div 
-          className="absolute top-8 left-10"
+          className="absolute top-6 sm:top-8 left-4 sm:left-6 md:left-10"
           style={{ 
             opacity: useTransform(scrollYProgress, [0, 0.05, 1], [1, 0, 0])
           }}
         >
-          <h2 className="text-7xl md:text-8xl font-bold tracking-tight">
+          <h2 className="text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-bold tracking-tight">
             <span className="text-white">Our</span><br />
             <span className="text-yellow-400">Journey</span>
           </h2>

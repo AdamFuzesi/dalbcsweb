@@ -3,9 +3,6 @@
 import { useState } from "react"
 import { motion } from "framer-motion"
 import { FrameComponent } from "./frame-component"
-import { Slider } from "@/components/ui/slider"
-import { Button } from "@/components/ui/button"
-import { Switch } from "@/components/ui/switch"
 import siteContent from "@/content/site-content.json"
 import { useRouter } from "next/navigation"
 
@@ -44,14 +41,11 @@ const initialFrames: Frame[] = siteContent.blog.posts.map((post) => ({
 
 export function DynamicFrameLayout() {
   const router = useRouter()
-  const [frames, setFrames] = useState<Frame[]>(initialFrames)
+  const [frames] = useState<Frame[]>(initialFrames)
   const [hovered, setHovered] = useState<{ row: number; col: number } | null>({ row: 0, col: 0 })
   const [actuallyHovered, setActuallyHovered] = useState<{ row: number; col: number } | null>(null)
-  const [hoverSize, setHoverSize] = useState(6)
-  const [gapSize, setGapSize] = useState(4)
-  const [showControls, setShowControls] = useState(false)
-  const [cleanInterface, setCleanInterface] = useState(true)
-  const [autoplayMode] = useState<"hover">("hover")
+  const [hoverSize] = useState(7)
+  const [gapSize] = useState(8)
 
   const handleFrameClick = (slug: string) => {
     router.push(`/blog/${slug}`)
@@ -59,7 +53,7 @@ export function DynamicFrameLayout() {
 
   const getRowSizes = () => {
     if (hovered === null) {
-      return "4fr 4fr 4fr"
+      return "1fr 1fr 1fr"
     }
     const { row } = hovered
     const nonHoveredSize = (12 - hoverSize) / 2
@@ -68,75 +62,15 @@ export function DynamicFrameLayout() {
 
   const getColSizes = () => {
     if (hovered === null) {
-      return "4fr 4fr 4fr"
+      return "1fr 1fr 1fr"
     }
     const { col } = hovered
     const nonHoveredSize = (12 - hoverSize) / 2
     return [0, 1, 2].map((c) => (c === col ? `${hoverSize}fr` : `${nonHoveredSize}fr`)).join(" ")
   }
 
-  const getTransformOrigin = (x: number, y: number) => {
-    const vertical = y === 0 ? "top" : y === 4 ? "center" : "bottom"
-    const horizontal = x === 0 ? "left" : x === 4 ? "center" : "right"
-    return `${vertical} ${horizontal}`
-  }
-
-  const updateFrameProperty = (id: number, property: keyof Frame, value: number) => {
-    setFrames(frames.map((frame) => (frame.id === id ? { ...frame, [property]: value } : frame)))
-  }
-
-  const toggleControls = () => {
-    setShowControls(!showControls)
-  }
-
-  const toggleCleanInterface = () => {
-    setCleanInterface(!cleanInterface)
-    if (!cleanInterface) {
-      setShowControls(false)
-    }
-  }
-
   return (
-    <div className="space-y-4 w-full h-full">
-      {!cleanInterface && (
-        <div className="flex justify-between items-center">
-          <h2 className="text-2xl font-bold text-white">Blog Posts</h2>
-          <div className="space-x-2">
-            <Button onClick={toggleControls}>{showControls ? "Hide Controls" : "Show Controls"}</Button>
-            <Button onClick={toggleCleanInterface}>{cleanInterface ? "Show UI" : "Hide UI"}</Button>
-          </div>
-        </div>
-      )}
-      {!cleanInterface && showControls && (
-        <>
-          <div className="space-y-2">
-            <label htmlFor="hover-size" className="block text-sm font-medium text-gray-200">
-              Hover Size: {hoverSize}
-            </label>
-            <Slider
-              id="hover-size"
-              min={4}
-              max={8}
-              step={0.1}
-              value={[hoverSize]}
-              onValueChange={(value) => setHoverSize(value[0])}
-            />
-          </div>
-          <div className="space-y-2">
-            <label htmlFor="gap-size" className="block text-sm font-medium text-gray-200">
-              Gap Size: {gapSize}px
-            </label>
-            <Slider
-              id="gap-size"
-              min={0}
-              max={20}
-              step={1}
-              value={[gapSize]}
-              onValueChange={(value) => setGapSize(value[0])}
-            />
-          </div>
-        </>
-      )}
+    <div className="w-full h-full">
       <div
         className="relative w-full h-full"
         style={{
@@ -144,21 +78,28 @@ export function DynamicFrameLayout() {
           gridTemplateRows: getRowSizes(),
           gridTemplateColumns: getColSizes(),
           gap: `${gapSize}px`,
-          transition: "grid-template-rows 0.4s ease, grid-template-columns 0.4s ease",
+          transition: "all 0.7s cubic-bezier(0.4, 0, 0.2, 1)",
         }}
       >
         {frames.map((frame) => {
           const row = Math.floor(frame.defaultPos.y / 4)
           const col = Math.floor(frame.defaultPos.x / 4)
-          const transformOrigin = getTransformOrigin(frame.defaultPos.x, frame.defaultPos.y)
+          const isCurrentlyHovered = actuallyHovered?.row === row && actuallyHovered?.col === col
 
           return (
             <motion.div
               key={frame.id}
               className="relative cursor-pointer"
-              style={{
-                transformOrigin,
-                transition: "transform 0.4s ease",
+              initial={{ opacity: 0, scale: 0.9 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{
+                duration: 0.6,
+                delay: frame.id * 0.1,
+                ease: [0.4, 0, 0.2, 1],
+              }}
+              whileHover={{
+                scale: 1.02,
+                transition: { duration: 0.3 },
               }}
               onMouseEnter={() => {
                 setHovered({ row, col })
@@ -182,21 +123,15 @@ export function DynamicFrameLayout() {
                 mediaSize={frame.mediaSize}
                 borderThickness={frame.borderThickness}
                 borderSize={frame.borderSize}
-                onMediaSizeChange={(value) => updateFrameProperty(frame.id, "mediaSize", value)}
-                onBorderThicknessChange={(value) => updateFrameProperty(frame.id, "borderThickness", value)}
-                onBorderSizeChange={(value) => updateFrameProperty(frame.id, "borderSize", value)}
-                showControls={showControls && !cleanInterface}
+                onMediaSizeChange={() => {}}
+                onBorderThicknessChange={() => {}}
+                onBorderSizeChange={() => {}}
+                showControls={false}
                 label={`Post ${frame.id}`}
                 showFrame={false}
-                autoplayMode={autoplayMode}
-                isHovered={
-                  actuallyHovered?.row === Math.floor(frame.defaultPos.y / 4) &&
-                  actuallyHovered?.col === Math.floor(frame.defaultPos.x / 4)
-                }
-                showOverlay={
-                  actuallyHovered?.row === Math.floor(frame.defaultPos.y / 4) &&
-                  actuallyHovered?.col === Math.floor(frame.defaultPos.x / 4)
-                }
+                autoplayMode="hover"
+                isHovered={isCurrentlyHovered}
+                showOverlay={isCurrentlyHovered}
               />
             </motion.div>
           )
@@ -205,4 +140,3 @@ export function DynamicFrameLayout() {
     </div>
   )
 }
-

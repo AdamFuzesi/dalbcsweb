@@ -33,7 +33,7 @@ const CharacterCard: FC<{ member: TeamMember; onSelect: () => void }> = ({ membe
         zIndex: 10,
         transition: { duration: 0.2 }
       }}
-      className="relative h-[60vh] w-60 md:w-72 flex-shrink-0 cursor-pointer"
+      className="relative h-[50vh] sm:h-[55vh] md:h-[60vh] w-48 sm:w-56 md:w-72 flex-shrink-0 cursor-pointer"
       style={{
         clipPath: "polygon(20% 0, 100% 0, 80% 100%, 0% 100%)",
       }}
@@ -291,20 +291,22 @@ export const ExecTeamSection: FC = () => {
           transition={{ duration: 0.8 }}
           className="text-center mb-16"
         >
-          <h2 className="text-7xl md:text-8xl font-bold tracking-tight">
+          <h2 className="text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-bold tracking-tight">
             <span className="text-white">Meet The </span>
             <span className="text-yellow-400">Team</span>
           </h2>
-          <p className="max-w-2xl mx-auto mt-4 text-xl text-white">
+          <p className="max-w-2xl mx-auto mt-4 text-base sm:text-lg md:text-xl text-white px-4">
             {content.team.subheading}
           </p>
         </motion.div>
-        <div className="flex justify-center items-center">
-          {teamMembers.map((member, index) => (
-            <div key={member.id} className={index > 0 ? "md:-ml-24" : ""}>
-              <CharacterCard member={member} onSelect={() => handleMemberSelect(member)} />
-            </div>
-          ))}
+        <div className="flex justify-center items-center overflow-x-auto pb-4">
+          <div className="flex gap-2 sm:gap-4 md:gap-0 px-4 sm:px-0">
+            {teamMembers.map((member, index) => (
+              <div key={member.id} className={`flex-shrink-0 ${index > 0 ? "md:-ml-24" : ""}`}>
+                <CharacterCard member={member} onSelect={() => handleMemberSelect(member)} />
+              </div>
+            ))}
+          </div>
         </div>
       </div>
       <AnimatePresence mode="wait">

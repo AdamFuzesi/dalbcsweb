@@ -1,58 +1,56 @@
 "use client"
 
-import { useState } from "react"
 import { DynamicFrameLayout } from "./dynamic-frame-layout"
 import { Button } from "@/components/ui/button"
-import Image from "next/image"
-import Link from "next/link"
 import siteContent from "@/content/site-content.json"
 
 export function BlogContent() {
-  const [headerSize] = useState(1.2) // 120% is the default size
-  const [textSize] = useState(0.8) // 80% is the default size
-
   return (
-    <div className="min-h-screen bg-black flex items-center justify-center p-8">
-      <div className="w-full h-full flex flex-col md:flex-row items-start gap-8 md:gap-8">
-        {/* Left Content */}
-        <div className="w-full md:w-[260px] flex-shrink-0 flex flex-col justify-between h-full">
-          <div className="flex flex-col gap-16">
-            <h1
-              className="text-4xl md:text-6xl font-light text-white tracking-tight leading-[130%]"
-              style={{ fontSize: `${4 * headerSize}rem` }}
-            >
-              {siteContent.blog.content.title.split('\n').map((line, index) => (
-                <span key={index}>
-                  {line}
-                  {index < siteContent.blog.content.title.split('\n').length - 1 && <br />}
-                </span>
-              ))}
-            </h1>
-            <div
-              className="flex flex-col gap-12 text-white/50 text-sm font-light max-w-[300px]"
-              style={{ fontSize: `${0.875 * textSize}rem` }}
-            >
-              <div className="space-y-6">
-                <div className="h-px bg-white/10 w-full" />
-                {siteContent.blog.content.paragraphs.map((paragraph, index) => (
-                  <p key={index}>
-                    {paragraph}
-                  </p>
+    <div className="min-h-screen bg-black flex items-center justify-center p-4 md:p-8">
+      <div className="w-full max-w-7xl h-full flex flex-col lg:flex-row items-start gap-8 lg:gap-16">
+        <div className="w-full lg:w-[320px] flex-shrink-0 flex flex-col justify-between h-full">
+          <div className="flex flex-col gap-12">
+            {/* Main Title */}
+            <div className="space-y-6">
+              <h1 className="text-3xl sm:text-4xl md:text-7xl lg:text-8xl font-light text-white tracking-tighter leading-[0.9] text-balance">
+                {siteContent.blog.content.title.split("\n").map((line, index) => (
+                  <span key={index} className="block">
+                    {line === "Word?" ? (
+                      <span className="text-yellow-400">{line}</span>
+                    ) : (
+                      line
+                    )}
+                  </span>
                 ))}
-                <div className="h-px bg-white/10 w-full" />
-              </div>
+              </h1>
+
+              {/* Subtle accent line */}
+              <div className="w-16 h-px bg-gradient-to-r from-white/40 to-transparent" />
+            </div>
+
+            {/* Content paragraphs */}
+            <div className="text-xl md:text-lg text-brand-accent mb-8 leading-relaxed">
+              {siteContent.blog.content.paragraphs.map((paragraph, index) => (
+                <p key={index} className="text-pretty">
+                  {paragraph}
+                </p>
+              ))}
             </div>
           </div>
-          <Button
-            className="inline-block px-6 py-3 text-white/70 border border-white/20 rounded-full font-medium hover:bg-white/5 transition-colors text-center w-full max-w-[260px] text-sm mt-16"
-            variant="outline"
-          >
-            {siteContent.blog.content.ctaButton}
-          </Button>
+
+          {/* CTA Button */}
+          <div className="mt-16">
+            <Button
+              className="group relative px-8 py-4 text-white/80 border border-white/20 rounded-full font-medium hover:bg-white/5 hover:border-white/30 transition-all duration-300 text-center w-full max-w-[280px] text-sm backdrop-blur-sm overflow-hidden bg-transparent"
+              variant="outline"
+            >
+              <span className="relative z-10">{siteContent.blog.content.ctaButton}</span>
+              <div className="absolute inset-0 bg-gradient-to-r from-white/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+            </Button>
+          </div>
         </div>
 
-        {/* Right Content */}
-        <div className="w-full md:flex-grow h-[60vh] md:h-[80vh]">
+        <div className="w-full lg:flex-grow h-[60vh] sm:h-[70vh] lg:h-[85vh]">
           <DynamicFrameLayout />
         </div>
       </div>

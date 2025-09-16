@@ -22,13 +22,13 @@ export const HeroSection: FC<HeroSectionProps> = ({ onExploreClick }) => {
             transition={{ duration: 0.8, ease: "easeOut" }}
             className="text-center md:text-left md:w-1/2"
           >
-            <h1 className="text-6xl md:text-8xl lg:text-9xl font-extrabold tracking-tighter text-white">
+            <h1 className="text-4xl sm:text-5xl md:text-8xl lg:text-9xl font-extrabold tracking-tighter text-white">
               {content.hero.heading}
             </h1>
-            <h1 className="text-6xl md:text-8xl lg:text-9xl font-extrabold tracking-tighter text-yellow-500">
+            <h1 className="text-4xl sm:text-5xl md:text-8xl lg:text-9xl font-extrabold tracking-tighter text-yellow-500">
               {content.hero.headingSubtext}
             </h1>
-            <p className="mt-4 text-lg md:text-xl text-brand-accent max-w-md mx-auto md:mx-0">
+            <p className="mt-4 text-base sm:text-lg md:text-xl text-brand-accent max-w-md mx-auto md:mx-0">
               Powered by <span className="text-white font-semibold">{content.hero.poweredByHighlight}</span>
               <br />
               {content.hero.tagline}
@@ -37,7 +37,7 @@ export const HeroSection: FC<HeroSectionProps> = ({ onExploreClick }) => {
               size="lg"
               variant="outline"
               onClick={onExploreClick}
-              className="mt-8 border-2 border-brand-primary text-brand-primary font-bold rounded-full group hover:bg-brand-primary hover:text-brand-background transition-colors duration-300 px-8 py-6 text-lg bg-transparent cursor-pointer"
+              className="mt-8 border-2 border-brand-primary text-brand-primary font-bold rounded-full group hover:bg-brand-primary hover:text-brand-background transition-colors duration-300 px-6 sm:px-8 py-4 sm:py-6 text-base sm:text-lg bg-transparent cursor-pointer"
             >
               {content.hero.cta.label}
               <ArrowRight className="ml-2 h-5 w-5 transform group-hover:translate-x-1 transition-transform" />
