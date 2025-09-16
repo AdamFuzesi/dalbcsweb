@@ -172,7 +172,7 @@ const MemberDetailModal: FC<{ member: TeamMember; onDeselect: () => void }> = ({
               <h3 className="text-4xl md:text-5xl font-bold text-white leading-tight">
                 {member.name}
               </h3>
-              <p className="text-2xl md:text-3xl text-brand-primary font-medium">
+              <p className="text-2xl md:text-2xl text-yellow-400 font-light leading-tight">
                 {member.role}
               </p>
             </div>
@@ -291,10 +291,11 @@ export const ExecTeamSection: FC = () => {
           transition={{ duration: 0.8 }}
           className="text-center mb-16"
         >
-          <h2 className="text-5xl md:text-7xl font-extrabold tracking-tighter text-yellow-500">
-            {content.team.heading}
+          <h2 className="text-7xl md:text-8xl font-bold tracking-tight">
+            <span className="text-white">Meet The </span>
+            <span className="text-yellow-400">Team</span>
           </h2>
-          <p className="max-w-2xl mx-auto mt-4 text-lg text-brand-accent">
+          <p className="max-w-2xl mx-auto mt-4 text-xl text-white">
             {content.team.subheading}
           </p>
         </motion.div>

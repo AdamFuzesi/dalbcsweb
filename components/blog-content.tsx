@@ -18,7 +18,7 @@ export function BlogContent() {
         <div className="w-full md:w-[260px] flex-shrink-0 flex flex-col justify-between h-full">
           <div className="flex flex-col gap-16">
             <h1
-              className="text-4xl md:text-6xl font-light text-white/80 tracking-tighter leading-[130%]"
+              className="text-4xl md:text-6xl font-light text-white tracking-tight leading-[130%]"
               style={{ fontSize: `${4 * headerSize}rem` }}
             >
               {siteContent.blog.content.title.split('\n').map((line, index) => (
@@ -59,4 +59,3 @@ export function BlogContent() {
     </div>
   )
 }
-

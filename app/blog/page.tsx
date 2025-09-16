@@ -110,48 +110,35 @@ export default function BackgroundPaths({
           <FloatingPaths position={-1} />
         </div>
 
-        <div className="relative z-10 container mx-auto px-4 sm:px-6 lg:px-8 h-screen flex items-center justify-center">
-          {/* Centered content */}
-          <motion.div
-            initial={{ opacity: 0, y: 50 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, ease: "easeOut" }}
-            className="text-center flex flex-col items-center"
-          >
-             <h1 className="text-6xl md:text-8xl lg:text-9xl font-extrabold tracking-tighter text-white mt-8">
-              {words.map((word, wordIndex) => (
-                <span key={wordIndex} className="inline-block mr-3 last:mr-0">
-                  {word.split("").map((letter, letterIndex) => (
-                    <motion.span
-                      key={`${wordIndex}-${letterIndex}`}
-                      initial={{ y: 100, opacity: 0 }}
-                      animate={{ y: 0, opacity: 1 }}
-                      transition={{
-                        delay: wordIndex * 0.08 + letterIndex * 0.02,
-                        type: "spring",
-                        stiffness: 140,
-                        damping: 22,
-                      }}
-                      className="inline-block"
-                    >
-                      {letter}
-                    </motion.span>
-                  ))}
-                </span>
-              ))}
-            </h1>
+        <div className="relative z-10 container mx-auto px-4 sm:px-6 lg:px-8 h-screen flex items-center">
+          <div className="w-full grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-start">
+            {/* Left side - Title and Subtext */}
+            <motion.div
+              initial={{ opacity: 0, x: -50 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8, ease: "easeOut" }}
+              className="text-left"
+            >
+              <h1 className="text-6xl md:text-8xl lg:text-9xl font-extrabold tracking-tighter leading-tight">
+                <div className="block text-white">Block</div>
+                <div className="block">
+                  <span className="text-white">By </span>
+                  <span className="text-yellow-400">Block</span>
+                </div>
+              </h1>
 
-              <p className="mt-8 text-lg md:text-xl text-brand-accent max-w-md mx-auto mb-32">
+              <p className="mt-8 text-lg md:text-xl text-white max-w-lg">
                 Insights, updates, and stories from <span className="font-semibold">Dalhousie Blockchain Society</span>
               </p>
- 
-             {/* Centered button below the text */}
-             <motion.div
-               initial={{ opacity: 0, y: 30 }}
-               animate={{ opacity: 1, y: 0 }}
-               transition={{ duration: 0.8, delay: 0.3, ease: "easeOut" }}
-               className="-mt-8"
-             >
+            </motion.div>
+
+            {/* Right side - Button aligned with subtext */}
+            <motion.div
+              initial={{ opacity: 0, x: 50 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
+              className="flex justify-start lg:justify-center items-start pt-8 lg:pt-[calc(6rem+8rem+2rem)]"
+            >
               <Button
                 variant="outline"
                 size="lg"
@@ -163,8 +150,8 @@ export default function BackgroundPaths({
                   →
                 </span>
               </Button>
-             </motion.div>
-           </motion.div>
+            </motion.div>
+          </div>
         </div>
 
       </section>

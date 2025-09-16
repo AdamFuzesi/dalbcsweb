@@ -47,7 +47,7 @@ export const ContactSection: FC = () => {
                 <Button
                   size="lg"
                   variant="ghost"
-                  className="group p-0 h-auto bg-transparent hover:bg-transparent text-brand-primary font-light text-lg"
+                  className="group p-0 h-auto bg-transparent hover:bg-transparent text-brand-primary font-medium text-lg"
                 >
                   <span className="relative">
                     Send Message
