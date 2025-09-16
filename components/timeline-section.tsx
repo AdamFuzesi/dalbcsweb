@@ -48,8 +48,8 @@ const events: TimelineEvent[] = [
   },
   {
     year: "2024",
-    title: "Research\nPublication",
-    description: "Published groundbreaking research on decentralized systems and their applications in academic and industry contexts.",
+    title: "Research",
+    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elitLorem ipsum dolor sit amet, consectetur adipiscing elit",
     impact: "Contributing to blockchain knowledge",
     tags: ["Research", "Publication"],
     position: "below",
@@ -69,7 +69,7 @@ const events: TimelineEvent[] = [
   {
     year: "2024",
     title: "SUI\nIntegration",
-    description: "Integrated SUI blockchain technology into our curriculum and projects, providing students with cutting-edge experience.",
+    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elitLorem ipsum dolor sit amet, consectetur adipiscing elitLorem ipsum dolor sit amet, consectetur adipiscing elit",
     impact: "Next-generation blockchain education",
     tags: ["SUI", "Technology"],
     position: "below",
