@@ -7,7 +7,11 @@ import { ArrowRight } from "lucide-react"
 import { SpinningAsciiCube } from "./spinning-ascii-cube"
 import content from "@/content/site-content.json"
 
-export const HeroSection: FC = () => {
+interface HeroSectionProps {
+  onExploreClick?: () => void
+}
+
+export const HeroSection: FC<HeroSectionProps> = ({ onExploreClick }) => {
   return (
     <section className="h-screen w-full flex items-center justify-center relative overflow-hidden">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
@@ -32,7 +36,8 @@ export const HeroSection: FC = () => {
             <Button
               size="lg"
               variant="outline"
-              className="mt-8 border-2 border-brand-primary text-brand-primary font-bold rounded-full group hover:bg-brand-primary hover:text-brand-background transition-colors duration-300 px-8 py-6 text-lg bg-transparent"
+              onClick={onExploreClick}
+              className="mt-8 border-2 border-brand-primary text-brand-primary font-bold rounded-full group hover:bg-brand-primary hover:text-brand-background transition-colors duration-300 px-8 py-6 text-lg bg-transparent cursor-pointer"
             >
               {content.hero.cta.label}
               <ArrowRight className="ml-2 h-5 w-5 transform group-hover:translate-x-1 transition-transform" />

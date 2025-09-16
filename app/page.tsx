@@ -66,13 +66,17 @@ export default function LandingPage() {
     }
   }
 
+  const handleExploreClick = () => {
+    scrollToSection("team")
+  }
+
   return (
     <div className="bg-black text-white flex flex-col min-h-screen font-sans">
       <Header activeSection={activeSection} onNavigate={scrollToSection} />
       <motion.div className="fixed top-0 left-0 right-0 h-1 bg-brand-primary origin-left z-50" style={{ scaleX }} />
       <main className="flex-1">
         <div id="home" ref={heroRef}>
-          <HeroSection />
+          <HeroSection onExploreClick={handleExploreClick} />
         </div>
         <div id="team" ref={teamRef} className="pt-20">
           <ExecTeamSection />

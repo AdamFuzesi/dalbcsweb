@@ -71,7 +71,8 @@ export const JoinUsSection: FC = () => {
               <Button
                 size="lg"
                 variant="outline"
-                className="border-2 border-brand-primary text-brand-primary font-bold rounded-full group hover:bg-brand-primary hover:text-black transition-colors duration-300 px-8 py-6 text-lg bg-transparent"
+                onClick={() => window.open('https://discord.gg/ygR88qUwW9', '_blank')}
+                className="border-2 border-brand-primary text-brand-primary font-bold rounded-full group hover:bg-brand-primary hover:text-black transition-colors duration-300 px-8 py-6 text-lg bg-transparent cursor-pointer"
               >
                 {content.join.cta.label}
                 <ArrowRight className="ml-2 h-5 w-5 transform group-hover:translate-x-1 transition-transform" />
