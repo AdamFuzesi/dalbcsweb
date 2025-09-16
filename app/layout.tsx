@@ -8,6 +8,34 @@ export const metadata: Metadata = {
   title: content.metadata.title,
   description: content.metadata.description,
   generator: 'v0.app',
+  metadataBase: new URL('https://dalbcsweb.vercel.app'),
+  openGraph: {
+    title: content.metadata.title,
+    description: content.metadata.description,
+    url: 'https://dalbcsweb.vercel.app',
+    siteName: 'Dal BCS',
+    images: [
+      {
+        url: '/logo.png',
+        width: 800,
+        height: 600,
+        alt: 'Dalhousie Blockchain Society Logo',
+      },
+    ],
+    locale: 'en_US',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: content.metadata.title,
+    description: content.metadata.description,
+    images: ['/logo.png'],
+  },
+  icons: {
+    icon: '/logo.png',
+    shortcut: '/logo.png',
+    apple: '/logo.png',
+  },
 }
 
 export default function RootLayout({
