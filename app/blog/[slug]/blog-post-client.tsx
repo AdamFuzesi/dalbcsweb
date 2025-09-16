@@ -30,6 +30,17 @@ interface BlogPostClientProps {
 export function BlogPostClient({ post }: BlogPostClientProps) {
   const router = useRouter()
 
+  // Additional safety check
+  if (!post || !post.content) {
+    return (
+      <div className="min-h-screen bg-brand-background text-white flex items-center justify-center">
+        <div className="text-center">
+          <p className="text-brand-accent">Error loading blog post</p>
+        </div>
+      </div>
+    )
+  }
+
   const onNavigate = (id: string) => {
     if (typeof window === "undefined") return
     if (window.location.pathname !== "/") {
@@ -119,7 +130,7 @@ export function BlogPostClient({ post }: BlogPostClientProps) {
 
             {/* Body Content */}
             <div className="prose prose-lg prose-invert max-w-none mb-12">
-              {post.content.body.map((paragraph, index) => (
+              {(post.content.body || []).map((paragraph, index) => (
                 <motion.p
                   key={index}
                   initial={{ opacity: 0, y: 20 }}
@@ -144,7 +155,7 @@ export function BlogPostClient({ post }: BlogPostClientProps) {
                 Key Highlights
               </h3>
               <ul className="space-y-4">
-                {post.content.highlights.map((highlight, index) => (
+                {(post.content.highlights || []).map((highlight, index) => (
                   <motion.li
                     key={index}
                     initial={{ opacity: 0, x: -20 }}

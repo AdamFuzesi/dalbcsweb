@@ -1,9 +1,13 @@
+"use client"
+
 import { Button } from "@/components/ui/button"
 import { Header } from "@/components/header"
 import { ArrowLeft, FileX } from "lucide-react"
-import Link from "next/link"
+import { useRouter } from "next/navigation"
 
 export default function NotFound() {
+  const router = useRouter()
+  
   const onNavigate = (id: string) => {
     if (typeof window === "undefined") return
     if (window.location.pathname !== "/") {
@@ -32,21 +36,19 @@ export default function NotFound() {
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
             <Button
-              asChild
+              onClick={() => router.push('/blog')}
               className="bg-brand-primary text-brand-background hover:bg-brand-primary/90 font-bold px-8 py-3 rounded-full transition-all duration-300"
             >
-              <Link href="/blog">
-                <ArrowLeft className="mr-2 h-5 w-5" />
-                Back to Blog
-              </Link>
+              <ArrowLeft className="mr-2 h-5 w-5" />
+              Back to Blog
             </Button>
             
             <Button
               variant="outline"
-              asChild
+              onClick={() => router.push('/')}
               className="border-2 border-brand-primary text-brand-primary hover:bg-brand-primary hover:text-brand-background font-bold px-8 py-3 rounded-full transition-all duration-300"
             >
-              <Link href="/">Return to Home</Link>
+              Return to Home
             </Button>
           </div>
         </div>
